@@ -1,0 +1,84 @@
+body{
+	background: #5a5a5a0d;
+	font-family: 'Bakbak One', cursiva;
+	margin: 0px;
+}
+
+.menu {
+	background: black;
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+}
+
+.menu a{
+	text-decoration: none;
+	color: white;
+}
+
+ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 0 40px;
+}
+
+li{
+	font-size: 15px;
+	list-style: none;
+	margin: 0px 20px;
+}
+
+.contenedor{
+	height: 50vh;
+	margin: 5%;
+	display: flex;
+	flex-direction: row; /* los pone uno al lado del otro */
+	justify-content: space-around; /*los separa*/
+	align-items: center;    /* lo centra en el eje X */
+}
+
+.clases, .usuarios{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.boton1 a, .boton2 a{
+	background: black;
+	border-radius: 12px;
+	color: white;
+	text-decoration: none;
+	padding: 10px 90px;	
+}
+
+table{
+	font-size: 20px;
+	width: 100%;
+	padding: 15px 30px;
+}
+
+td{
+	text-align: center;
+}
+
+.tabla1, .tabla2{
+	border: 1px solid black;
+	width: 600px;
+	height: 500px;
+}
+
+.botonModificar{
+	
+} 
+
+
+.botonEliminar{
+	width: 29px;
+}
+
+p{  /*El saludo*/
+	font-size: 20px;
+	font-weight: bold;
+}

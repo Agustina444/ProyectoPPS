@@ -1,0 +1,14 @@
+	USUARIOS:
+
+Nombre    Apellido     email                  usuario          contraseña  categoría
+Agustina  Lanosa     alanosa4@gmail.com         Agus		 123         1      
+Julio     Lanosa     juliolanosa@gmail.com      Julio		 123         2
+Laura     Rodriguez  laura@gmail.com	        Laura		 123         2
+Florencia Lanosa     florencia@gmail.com	Flor		 123	     2	
+
+
+
+	CATEGORÍA:
+
+1 Administrador
+2 Suscriptor

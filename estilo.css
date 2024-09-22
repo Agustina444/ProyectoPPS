@@ -1,0 +1,103 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Bakbak One', cursiva;
+}
+
+header{
+	background: url(imagenes/fondo2.avif);
+	background-size: cover;
+	height: 100vh; /*siempre va a estar 100%*/
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	margin: auto;
+}
+
+ul{ /*los ubico a la derecha*/ 
+	 display: flex;
+	 list-style: none; 
+	 padding: 0 40px;
+}
+
+li{ /*separo los item uno del otro*/
+	margin: 0 20px;
+}
+
+li a{
+	color: white;
+	font-size: 15px;
+}
+
+a{
+	text-decoration: none;
+}
+
+.contenedor-titulo{
+	text-align: left; /*lo que tenga adentro lo centra*/
+	margin-top: 40vh; /*va a acupar siempre el 40%de la ventana*/
+}
+
+.contenedor-titulo a{
+	font-size: 20px;
+	background: #1a1918e3;
+	color: #f2f2f2;
+	padding: 15px 15px;
+	border-radius: 6px;
+	margin: 0 170px;
+}
+
+h1{
+	color: #f2f2f2;
+	font-size: 80px;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 40px; /*para que el boton baje*/
+}
+
+h2{
+	font-size: 40px;
+}
+
+.contenedor{
+	text-align: center;
+}
+
+.contenedorActividades{
+	display: flex;
+	justify-content: center;
+	padding: 0 0;
+}
+
+img{
+	width: 45%;
+	background: #5a5a5a0d;
+}
+
+.clases {
+	text-align: center;
+	font-size: 15px;
+	box-shadow: 0px 0px 0 #0000001f;
+	background: #5a5a5a0d;
+	margin: 7px 30px;
+	width: 50%;
+	padding: 35px 0;
+	border-radius: 6px;
+}
+
+#ingresar {
+	color: #f2f2f2;
+	background: black;
+	padding: 80px 0px;
+}
+
+.contenedor a{
+	font-size: 23px;
+	background: #1a1918e3;
+	color: white;
+	padding: 10px 35px;
+	border-radius: 6px;
+}
