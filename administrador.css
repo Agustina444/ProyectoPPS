@@ -38,7 +38,7 @@ li{
 	align-items: center;    /* lo centra en el eje X */
 }
 
-.clases, .usuarios{
+.clases, .usuarios, .sedes{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
