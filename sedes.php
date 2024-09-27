@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title> Sedes </title>
 	<link rel="stylesheet" type="text/css" href="formularios.css">
-	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,26 +12,20 @@
 		<div class="menu">	
 			<nav>
 				<ul>
-					<li><a href="pagina.html">INICIO</a></li>
+					<li><a href="form_registro.php">ASOCIATE</a></li>
+					<li><a href="form_login.php">INICIAR SESION</a></li>
 				</ul>
-			</nav>	
+			</nav>
 		</div>
-
-		   	<section class="contenedor">
-		   		
-		   		<div class="sedes">
-	                <div class="img_sedes">
-	         			<p> ACA VA UNA IMAGEN </p>
-	            	</div>  
-
-	            	<div>
-	            		<p> INFO DE LAS SEDES </p>
-	            	</div>
-	            </div>
-
-			</section>
-
 	</header>
-	
+
+	<section id= "sedes">
+			<img src="imagenes/gymMoron">
+			<h3> Gym Moron </h3>
+			<p> Lunes a Viernes: 7 a 22hs  </p>
+			<p> Sabados: 9 a 18hs </p>
+			<p> Domingos/Feriados: Cerrado </p>
+	</section>
+
 </body>
 </html>
