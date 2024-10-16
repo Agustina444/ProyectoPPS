@@ -13,8 +13,8 @@
 		<div class="menu">	
 			<nav>
 				<ul>
-					<li><a href="form_login.php"> INICIAR SESION </a></li>
-					<li><a href="pagina.html"> INICIO </a></li>
+					<li><a href="form_login.php">LOGIN</a></li>
+					<li><a href="pagina.html">INICIO</a></li>
 				</ul>
 			</nav>	
 		</div>
@@ -32,12 +32,12 @@
 			<input type="text" name="apellido" id="apellido" required/>
 
 			<br/>
-			<label for="email"> Mail </label>
+			<label for="email"> Correo electrónico </label>
 			<br/>
 			<input type="email" name="email" id="email" required/>
 
 			<br/>
-			<label for="usuario"> Nombre de Usuario </label>
+			<label for="usuario"> Usuario </label>
 			<br/>
 			<input type="text" name="usuario" id="usuario" required/>
 				
@@ -48,7 +48,7 @@
 
 			<br/><br/>
 		
-			<input type="submit" class="boton" value="REGISTRARSE"/>	
+			<input type="submit" class="boton" value="REGISTRAR"/>	
 		</form>	
 	</div>
 </body>
