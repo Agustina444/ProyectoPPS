@@ -4,73 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Document</title>
-
-    <style>
-   
-   body {
-    background-color: #f0f0f0; /* Gris claro */
-}
-   
-   .card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Crea columnas que se ajustan automáticamente */
-    gap: 10px; /* Espacio entre las cards */
-}
-
-.custom-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.custom-card:hover {
-    transform: scale(1.05);
-}
-
-.custom-img {
-    height: 150px;
-    width: 100%;
-    object-fit: contain;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.custom-title {
-    color: #007BFF; 
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.custom-description {
-    color: #6c757d;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-.text-price {
-    color: #28a745; /* Color verde para el precio */
-    font-weight: bold; /* Hacer el precio más destacado */
-}
-
-
-
-
-    
-</style>
+    <link rel="stylesheet" type="text/css" href="/static/css/tienda.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title> Productos </title>
 </head>
-<body>
-<?php
-// Conectar a la base de datos
-$conexion = mysqli_connect("localhost", "root", "", "proyecto");
 
-// Verificar conexión
-if (!$conexion) {
-    die("Conexión fallida: " . mysqli_connect_error());
-}
+<body>
+    <header>
+        <?php include '../lib/barra_nav.php'; ?>
+    </header>
+
+<?php session_start();
+// Conectar a la base de datos
+include '../lib/conexion.php';
 
 // Consulta para obtener productos
 $sql = "SELECT p.*, c.nombre AS categoria_nombre FROM productos p JOIN categorias c ON p.categoria_id = c.id";
@@ -85,7 +32,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<div class="col-md-4 mb-4 d-flex align-items-stretch">'; // Alineamos las tarjetas para que tengan la misma altura
         echo '<div class="card border-0 h-100" style="background-color: #f8f9fa; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">'; // Tarjeta con sombra y bordes redondeados
         echo '<div style="width: 100%; height: 100px; overflow: hidden;">'; // Contenedor para mantener el tamaño fijo de la imagen
-        echo '<img src="'. $producto['imagen_url'] . '" class="card-img-top" alt="' . $producto['nombre'] . '" style="width: 100%; height: 100%; object-fit: contain;">'; // Imagen ajustada para llenar el contenedor
+        echo '<img src="/static/' . $producto['imagen_url'] . '" class="card-img-top" alt="' . $producto['nombre'] . '" style="width: 100%; height: 100%; object-fit: contain;">'; // Imagen ajustada para llenar el contenedor
         echo '</div>'; // cerrar contenedor de imagen
         echo '<div class="card-body d-flex flex-column">'; 
         echo '<h5 class="card-title mb-3" style="font-weight: 700; color: #333;">' . htmlspecialchars($producto['nombre']) . '</h5>'; // Título con un estilo fuerte

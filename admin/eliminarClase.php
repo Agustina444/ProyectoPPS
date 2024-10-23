@@ -39,17 +39,6 @@ $consulta = mysqli_query($conexion, "DELETE FROM clases WHERE clase_id = $idClas
             });
         </script>';
     }
-    
-
-
-    
-
-
-
-
-  
-    
-
 
 ?>
 <!DOCTYPE html>

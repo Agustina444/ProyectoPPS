@@ -1,0 +1,4 @@
+-Integrar la sección de admin
+-Modificar la seccion de clases, para que muestre todas las clases y proceder a la reserva con un boton
+-Arreglar estilos que se ven mal en las paginas y ver cuales estan de mas
+-Progeter la pagina de inyeccion sql y de más

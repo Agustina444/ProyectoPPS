@@ -1,5 +1,5 @@
 <?php session_start();
-	include("conexion.php");
+	include("../config/conexion.php");
 
 	//si no esta loggeado, volver
 	if(!isset($_SESSION['logueado'])){  
@@ -15,10 +15,12 @@
 		$contraseniaHash = password_hash($_GET['contrasenia'], PASSWORD_DEFAULT);
 		$categoria = $_GET['categoria'];
 		
-		$consulta = mysqli_query($conexion, "INSERT INTO usuarios
-												(nombre,apellido,email,usuario,contrasenia,categoria_id)
-												VALUES ('$nombre','$apellido','$email','$usuario','$contraseniaHash','$categoria')");										
+		$consulta = mysqli_query(
+			$conexion,
+			"INSERT INTO usuarios (nombre,apellido,email,usuario,contrasenia,categoria_id)
+					VALUES ('$nombre','$apellido','$email','$usuario','$contraseniaHash','$categoria')");										
 		header("Location: administrador.php");
+		exit;
 	}
 ?>
 
@@ -28,21 +30,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="formularios.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/form.css">
 	<title> Nuevo Usuario </title>
 </head>
 <body>
 <body>
 	
 	<header>
-		<div class="menu">	
-			<nav>
-				<ul>
-					<li><a href="salir.php">CERRAR SESIÓN</a></li>
-					<li><a href="pagina.html">INICIO</a></li>
-				</ul>
-			</nav>	
-		</div>
+		<?php include '../base/barra-nav.php'; ?> 
 	</header>
 
 	<div class="contenedor">

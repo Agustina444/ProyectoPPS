@@ -5,7 +5,7 @@ body{
 }
 
 header{
-	background: url(imagenes/fondo2.avif);
+	background: url(../img/fondo2.avif);
 	background-size: cover;
 	height: 100vh; /*siempre va a estar 100%*/
 }
