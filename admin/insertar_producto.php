@@ -1,11 +1,6 @@
 <?php
-// Conexión a la base de datos
-$conexion = mysqli_connect("localhost", "root", "", "proyecto");
-
-// Verificar la conexión
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
-}
+include '../lib/conexion.php';
+include '../lib/necesita_permiso.php';
 
 // Recibir datos del formulario
 $nombre = $_POST['nombre'];

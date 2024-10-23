@@ -1,12 +1,7 @@
 
 <?php
-// Conexión a la base de datos
-include '../base/conexion.php';
-
-// Verificar la conexión
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
-}
+include '../lib/conexion.php';
+include '../lib/necesita_permiso.php';
 
 // Consulta para obtener las categorías
 $sql_categorias = "SELECT id, nombre FROM categorias";

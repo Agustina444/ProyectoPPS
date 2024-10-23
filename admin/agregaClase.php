@@ -1,16 +1,8 @@
 <?php session_start();
-	include("conexion.php");
-
-	//si no esta loggeado, volver
-	if(!isset($_SESSION['logueado'])){  
-		header("Location: form_login.php");
-		exit;
-	}
 	
-	if (!$conexion) {
-    die("Error en la conexión: " . mysqli_connect_error());
-}
-
+include '../lib/conexion.php';
+include '../lib/necesita_permiso.php';
+	
 // Verificar si el formulario se ha enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreClase = $_POST['nombreClase'];

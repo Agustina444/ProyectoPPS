@@ -1,6 +1,6 @@
 <?php
-// Conexión a la base de datos
-$conexion = mysqli_connect("localhost", "root", "", "proyecto");
+include '../lib/conexion.php';
+include '../lib/necesita_permiso.php';
 
 // Verificar si se ha recibido un ID de clase
 if (isset($_GET['clase_id'])) {

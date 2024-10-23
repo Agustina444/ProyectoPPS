@@ -3,13 +3,8 @@
         session_start(); 
     } 
 
-	include("conexion.php");
-
-	//si no esta loggeado, volver
-	if(!isset($_SESSION['logueado'])){  
-		header("Location: form_login.php");
-		exit;
-	}
+  include '../lib/conexion.php';
+  include '../lib/necesita_permiso.php';
 
 	//consulta para ver datos de esas 2 tablas
 	$clases = mysqli_query($conexion, " SELECT * 

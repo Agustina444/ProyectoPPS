@@ -1,12 +1,12 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-light navbar-white">
   <div class="container">
-    <a href="index3.html" class="navbar-brand">
+    <a href="administrador.php" class="navbar-brand">
       <span class="brand-text font-weight-light">Lutina Gym</span>
     </a>
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Inicio</a>
+        <a href="administrador.php" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contacto</a>
@@ -63,7 +63,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a href="salir.php"><button class="btn btn-danger fw-bold btn-cerrar-sesion ml-5">Cerrar sesión</button></a>
+        <a href="/lib/cerrar_sesion.php"><button class="btn btn-danger fw-bold btn-cerrar-sesion ml-5">Cerrar sesión</button></a>
       </li>
     </ul>
   </div>

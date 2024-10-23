@@ -1,12 +1,8 @@
 <?php
 	session_start();
-	include("conexion.php");
-
-	//si no esta loggeado, volver
-	if(!isset($_SESSION['logueado'])){  
-		header("Location: form_login.php");
-		exit;
-	}
+	
+	include '../lib/conexion.php';
+	include '../lib/necesita_permiso.php';
 
 	if (isset($_GET['usuarioModificado'])) {
 		$consulta = mysqli_query($conexion,"SELECT *
@@ -34,7 +30,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="formularios.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/form.css">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
 	<title> Modificación Usuario </title>
 </head>

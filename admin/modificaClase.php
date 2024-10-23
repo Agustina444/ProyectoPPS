@@ -1,14 +1,8 @@
-<?php
-
-
+<?php 
 	session_start();
-	include("conexion.php");
 
-	//si no esta loggeado, volver
-	if(!isset($_SESSION['logueado'])){  
-		header("Location: form_login.php");
-		exit;
-	}
+	include '../lib/conexion.php';
+	include '../lib/necesita_permiso.php';
 
 	if (isset($_GET['clase_id'])) {
 		$consulta = mysqli_query($conexion,"SELECT *

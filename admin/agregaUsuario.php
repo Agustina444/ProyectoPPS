@@ -1,11 +1,7 @@
 <?php session_start();
-	include("../config/conexion.php");
 
-	//si no esta loggeado, volver
-	if(!isset($_SESSION['logueado'])){  
-		header("Location: form_login.php");
-		exit;
-	}
+include '../lib/conexion.php';
+include '../lib/necesita_permiso.php';
 
 	if(isset($_GET['nombre']) && isset($_GET['apellido']) && isset($_GET['email']) && isset($_GET['usuario']) && isset($_GET['contrasenia']) && isset($_GET['categoria'])){
 		$nombre = $_GET['nombre'];

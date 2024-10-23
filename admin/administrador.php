@@ -3,13 +3,8 @@
         session_start(); 
     } 
 
-	include("../conf/conexion.php");
-
-	//si no esta loggeado, volver
-	if(!isset($_SESSION['logueado'])){  
-		header("Location: form_login.php");
-		exit;
-	}
+  include '../lib/conexion.php';
+  include '../lib/necesita_permiso.php';
 
 	//consulta para ver datos de esas 2 tablas
 	$clases = mysqli_query($conexion, " SELECT * 
@@ -42,8 +37,8 @@
 	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="../static/css/custom.css">
-   <link rel="stylesheet" href="../static/css/admin.css">
+   <link rel="stylesheet" href="/static/css/custom.css">
+   <link rel="stylesheet" href="/static/css/admin.css">
  	
  	<title></title>
  </head>
@@ -84,7 +79,7 @@
         <?php while ($recorroClases = mysqli_fetch_array($clases)) { ?>
           <div class="col-md-3"> <!-- Columna de tamaño 4, para que se ajusten 3 tarjetas por fila -->
             <div class="card mb-3">
-              <img src="<?php echo $recorroClases['imagen_url']; ?>" class="card-img-top" alt="Imagen de la clase">
+              <img src="<?php echo "/static/{$recorro_clases['imagen_url']}"; ?>" class="card-img-top" alt="Imagen de la clase">
               <div class="card-body">
                 <h5 class="card-title font-weight-bold"><?php echo $recorroClases['nombre']; ?></h5>
                 <p class="card-text">
@@ -97,7 +92,7 @@
                 </p>
                 <div class="d-flex justify-content-end mt-3" style="gap: 10px;"> <!-- Ajusta el valor de gap según sea necesario -->
                   <!-- Botón para editar la clase -->
-                  <a href="modificaclase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-outline-primary btn-sm">
+                  <a href="modificaClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-outline-primary btn-sm">
                     <i class="fas fa-edit"></i> Editar
                   </a>
                   <!-- Botón para eliminar la clase -->
