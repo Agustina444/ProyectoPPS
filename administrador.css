@@ -1,0 +1,18 @@
+.card-img-top {
+  width: 100%; /* Para que la imagen ocupe todo el ancho del contenedor */
+  height: 200px; /* Establecer una altura fija */
+  object-fit: contain; /* Mantiene la relación de aspecto y recorta la imagen si es necesario */
+  margin-top: 10px;
+}
+.card {
+  margin-top: 30px;
+  width: 250px;
+  height: 350px;
+  border: 1px solid black;
+}
+
+.btn-clase {
+  margin-left: 1050px !important;
+  margin-bottom: 5px;
+  margin-top: 50px;
+}

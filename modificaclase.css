@@ -1,0 +1,13 @@
+.content {
+  margin-top: 70px;
+}
+
+.main-header {
+  position: relative; /* O 'static' si lo deseas */
+  z-index: 1000; /* Asegúrate de que esté por encima del contenido */
+}
+
+.formu {
+  border: 1px solid rgb(83, 81, 81);
+  border-radius: 5px;
+}
