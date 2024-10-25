@@ -1,8 +1,9 @@
 <?php session_start();
-	
-include '../lib/conexion.php';
-include '../lib/necesita_permiso.php';
-	
+// Conecta a la BD
+require '../lib/conexion_bd.php';
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
+
 // Verificar si el formulario se ha enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreClase = $_POST['nombreClase'];
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nombreArchivo = $_FILES['imagenClase']['name'];
         $tipoArchivo = $_FILES['imagenClase']['type'];
         $rutaTemporal = $_FILES['imagenClase']['tmp_name'];
-        $directorioDestino = 'uploads/clases/';
+        $directorioDestino = '../static/uploads/clases/';
         $rutaDestino = $directorioDestino . basename($nombreArchivo);
 
         // Verificar el tipo de archivo (solo imágenes)
@@ -91,8 +92,10 @@ h1{
 	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="custom.css">
+   <link rel="stylesheet" href="agregaclase.css">
 	
-	<title> Nueva Clase </title>
+	<title>Nueva Clase</title>
 </head>
 <body>
 
@@ -101,13 +104,7 @@ input[type="file"] {
     height:50px;
 }
 </style>
-	
-	
 	<?php include "sidebar.php" ?>
-
-
-	
-  
   
   <div class="container-fluid">
   <div class="row justify-content-center">
@@ -134,10 +131,6 @@ input[type="file"] {
     </div>
   </div>
 </div>
-
-
-
-
 
  <!-- jQuery -->
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

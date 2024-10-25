@@ -1,20 +1,25 @@
-<?php session_start();
+<?php
+
+// Comienza la sesión si no esta creada
+if(!isset($_SESSION)) session_start(); 
 
 $msj = "";
 
 if (isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
 
+	// Conecta a la BD
+	require '../lib/conexion_bd.php';
+
 	$usuario = $_POST['usuario'];
 	$contrasenia = $_POST['contrasenia'];
 
-	//busca en la BD usuario 
-	include '../lib/conexion.php';
-	$consulta = mysqli_query(
-		$conexion,
-		"SELECT *
-				FROM usuarios 
-				WHERE usuario = '$usuario'"
-	);
+	// Busca al usuario en la BD
+	$sql = "
+		SELECT *
+		FROM usuarios 
+		WHERE usuario = '$usuario'
+	";
+	$consulta = mysqli_query($conexion, $sql);
 
 	$resultado = mysqli_num_rows($consulta); //si la funcion me devuelve mas de 1 fila
 
@@ -29,13 +34,9 @@ if (isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
 			$_SESSION['id_usuario'] = $datosUsuario['usuario_id'];
 			$_SESSION['categoria'] = $datosUsuario['categoria_id'];
 
-			if ($_SESSION['categoria'] == 1) {  //es administrador
-				header("Location: ../administrador.php");
-				exit();
-			} else {
-				header("Location: ../index.php"); //es suscriptor
-				exit();
-			}
+			header("Location: ../index.php"); //es suscriptor
+			exit();
+			
 		} else {
 			$msj = "Contraseña mal ingresada, pruebe nuevamente";
 		}

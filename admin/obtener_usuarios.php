@@ -1,11 +1,8 @@
 <?php
-session_start();
-
-$conexion = mysqli_connect("localhost", "root", "", "proyecto");
-
-if (!$conexion) {
-    die("Conexión fallida: " . mysqli_connect_error());
-}
+// Conecta a la BD
+require '../lib/conexion_bd.php';
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
 
 if (isset($_GET['clase_id'])) {
     $clase_id = intval($_GET['clase_id']);

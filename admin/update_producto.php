@@ -8,21 +8,11 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Document</title>
 
-    <?php
-// Conectar a la base de datos
-$conexion = mysqli_connect("localhost", "root", "", "proyecto");
-
-if (!isset($_SESSION)) { 
-    session_start(); 
-} 
-if (!isset($_SESSION['logueado'])) {  
-    header("Location: form_login.php");
-    exit;
-}
-
-if (!$conexion) {
-    die("Conexión fallida: " . mysqli_connect_error());
-}
+<?php
+// Conecta a la BD
+require '../lib/conexion_bd.php';
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
 
 // Obtener el ID del producto a actualizar
 if (isset($_GET['id'])) {

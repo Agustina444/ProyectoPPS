@@ -1,7 +1,13 @@
-<?php session_start();
+<?php
+
+// Comienza la sesión si no esta creada
+if(!isset($_SESSION)) session_start(); 
 
 if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email']) && isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
 	
+	// Conecta a la BD
+	require '../lib/conexion_bd.php';
+
 	$_SESSION['logueado'] = true;
 	$nombre = $_POST['nombre'];
 	$apellido = $_POST['apellido'];
@@ -10,7 +16,6 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email'
 	$contraseniaHash = password_hash($_POST['contrasenia'], PASSWORD_DEFAULT);
 	$categoria = '2';
 
-	include '../lib/conexion.php';
 	mysqli_query(
 		$conexion,
 		"INSERT INTO usuarios (nombre, apellido, email, usuario, contrasenia, categoria_id)

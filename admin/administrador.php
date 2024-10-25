@@ -1,10 +1,8 @@
 <?php 
-    if(!isset($_SESSION)){ 
-        session_start(); 
-    } 
-
-  include '../lib/conexion.php';
-  include '../lib/necesita_permiso.php';
+  // Conecta a la BD
+  require '../lib/conexion_bd.php';
+  // Comienza sesión y verifica si el usuario está logueado
+  require '../lib/esta_logueado.php';
 
 	//consulta para ver datos de esas 2 tablas
 	$clases = mysqli_query($conexion, " SELECT * 
@@ -14,8 +12,6 @@
 											FROM usuarios");
 
 	//consulta para eliminar alguno de sus datos
-	
-
 	if(isset($_GET['usuarioEliminado'])){     
 		$eliminar = $_GET['usuarioEliminado'];
 
@@ -25,8 +21,6 @@
 		header("Location: administrador.php");
 		exit();
 	}
-
- 
 ?>
  <!DOCTYPE html>
  <html>
@@ -38,18 +32,36 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="/static/css/custom.css">
-   <link rel="stylesheet" href="/static/css/admin.css">
+   <link rel="stylesheet" href="/static/css/administrador.css">
  	
  	<title></title>
  </head>
  <body>
 
+<!-- Modal para mostrar usuarios registrados -->
+<div class="modal fade" id="usuariosModal" tabindex="-1" role="dialog" aria-labelledby="usuariosModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark text-light"> 
+      <div class="modal-header border-0">
+        <h5 class="modal-title font-weight-bold" id="usuariosModalLabel">Usuarios Registrados</h5> 
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="usuariosList"></div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
  <style>
   h1{
     font-family: 'Roboto', sans-serif;
   }
  </style>
-
 
 <?php include "sidebar.php" ?>
 
@@ -69,17 +81,16 @@
   </div>
 
   <div class="content">
-  <h1 class="mt-4">CLASES</h1>
     <a href="agregaClase.php">
     
-      <button class="btn btn-success">Agregar Clase</button>
+      <button class="btn btn-success btn-clase">Agregar Clase</button>
     </a>
     <div class="container-fluid">
       <div class="row"> <!-- Fila para contener las tarjetas -->
         <?php while ($recorroClases = mysqli_fetch_array($clases)) { ?>
           <div class="col-md-3"> <!-- Columna de tamaño 4, para que se ajusten 3 tarjetas por fila -->
             <div class="card mb-3">
-              <img src="<?php echo "/static/{$recorro_clases['imagen_url']}"; ?>" class="card-img-top" alt="Imagen de la clase">
+              <img src="<?php echo '../static/' . $recorroClases['imagen_url']; ?>" class="card-img-top" alt="Imagen de la clase">
               <div class="card-body">
                 <h5 class="card-title font-weight-bold"><?php echo $recorroClases['nombre']; ?></h5>
                 <p class="card-text">
@@ -90,14 +101,19 @@
                   echo "Horario: " . $horarioSinSegundos;
                   ?>
                 </p>
-                <div class="d-flex justify-content-end mt-3" style="gap: 10px;"> <!-- Ajusta el valor de gap según sea necesario -->
-                  <!-- Botón para editar la clase -->
-                  <a href="modificaClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-outline-primary btn-sm">
-                    <i class="fas fa-edit"></i> Editar
-                  </a>
-                  <!-- Botón para eliminar la clase -->
-                  <a href="eliminarClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-outline-danger btn-sm eliminarBtn" data-clase-id="<?php echo $recorroClases['clase_id']; ?>">Eliminar</a>
-                </div>
+                <div class="d-flex justify-content-end mt-3" style="gap: 10px;">
+  <!-- Botón para ver usuarios registrados -->
+  <button class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#usuariosModal" data-clase-id="<?php echo $recorroClases['clase_id']; ?>" onclick="cargarUsuarios(<?php echo $recorroClases['clase_id']; ?>)">
+    Usuarios
+  </button>
+  <!-- Botón para editar la clase -->
+  <a href="modificaClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-outline-primary btn-sm">
+    <i class="fas fa-edit"></i> Editar
+  </a>
+  <!-- Botón para eliminar la clase -->
+  <a href="eliminarClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-outline-danger btn-sm eliminarBtn" data-clase-id="<?php echo $recorroClases['clase_id']; ?>">Eliminar</a>
+</div>
+
               </div>
             </div>
           </div>
@@ -108,6 +124,23 @@
 </div>
 
 
+<script>
+function cargarUsuarios(clase_id) {
+  // Realiza una solicitud AJAX para obtener los usuarios registrados
+  $.ajax({
+    url: 'obtener_usuarios.php', // Cambia esto a la ruta de tu archivo PHP
+    type: 'GET',
+    data: { clase_id: clase_id },
+    success: function(data) {
+      // Actualiza el contenido del modal con la lista de usuarios
+      $('#usuariosList').html(data);
+    },
+    error: function() {
+      $('#usuariosList').html('<p>Error al cargar usuarios.</p>');
+    }
+  });
+}
+</script>
 
 
 

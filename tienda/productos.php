@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/tienda.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title> Productos </title>
+    <title>Productos</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 
 <?php session_start();
 // Conectar a la base de datos
-include '../lib/conexion.php';
+include '../lib/conexion_bd.php';
 
 // Consulta para obtener productos
 $sql = "SELECT p.*, c.nombre AS categoria_nombre FROM productos p JOIN categorias c ON p.categoria_id = c.id";

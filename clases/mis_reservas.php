@@ -1,17 +1,9 @@
 <?php
-session_start();
 
-$conexion = mysqli_connect("localhost", "root", "", "proyecto");
-
-if (!$conexion) {
-    die("Conexión fallida: " . mysqli_connect_error());
-}
-
-// Verificar si el usuario está logueado
-if (!isset($_SESSION['logueado'])) {
-    header("Location: login.php"); // Redirigir a la página de inicio de sesión si no está logueado
-    exit();
-}
+// Conecta a la BD
+require '../lib/conexion_bd.php';
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
 
 // Obtener el ID del usuario
 $usuario_id = $_SESSION['id_usuario'];
@@ -66,7 +58,4 @@ $result = mysqli_query($conexion, $sql);
     </div>
 </body>
 </html>
-
-<?php
-mysqli_close($conexion);
-?>
+<?php mysqli_close($conexion); ?>

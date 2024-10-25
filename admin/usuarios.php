@@ -1,10 +1,8 @@
 <?php 
-    if(!isset($_SESSION)){ 
-        session_start(); 
-    } 
-
-  include '../lib/conexion.php';
-  include '../lib/necesita_permiso.php';
+  // Conecta a la BD
+  require '../lib/conexion_bd.php';
+  // Comienza sesión y verifica si el usuario está logueado
+  require '../lib/esta_logueado.php';
 
 	//consulta para ver datos de esas 2 tablas
 	$clases = mysqli_query($conexion, " SELECT * 
@@ -43,6 +41,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
 	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="/static/css/custom.css">
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Document</title>
@@ -52,44 +51,7 @@
 </head>
 <body>
 
-<!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-<!-- Sidebar -->
-<div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="admin-lte/dist/assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="administrador.php" class="d-block"> <?php echo $_SESSION['nombre'] . " Admin" ?></a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="administrador.php" class="nav-link active">
-              <i class="nav-icon fas fa-solid fa-dumbbell"></i>
-              <p class="text-center ml-2"></p>
-                CLASES  </a>      
-          </li>
-          <li class="nav-item">
-            <a href="usuarios.php" class="nav-link active">
-            <i class="fas fa-user"></i>
-            <p class="text-center ml-3">USUARIOS</p></a>
-            </li>           
-</ul>
-
-</nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+<?php include "sidebar.php"; ?>
 
   <div class="content-wrapper">
   <!-- Cabecera del contenido -->
@@ -103,8 +65,8 @@
     <div class="container-fluid">
       <!-- Tarjeta que envuelve la tabla -->
       <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Lista de Usuarios Registrados</h3>
+        <div class="card-header" style = "margin-top:50px">
+          <h3 class="card-title text-center" >Lista de Usuarios Registrados</h3>
         </div>
         <div class="card-body">
           <!-- Aquí va la tabla que has proporcionado -->

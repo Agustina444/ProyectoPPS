@@ -1,7 +1,8 @@
 <?php session_start();
-
-include '../lib/conexion.php';
-include '../lib/necesita_permiso.php';
+	// Conecta a la BD
+	require '../lib/conexion_bd.php';
+	// Comienza sesión y verifica si el usuario está logueado
+	require '../lib/esta_logueado.php';
 
 	if(isset($_GET['nombre']) && isset($_GET['apellido']) && isset($_GET['email']) && isset($_GET['usuario']) && isset($_GET['contrasenia']) && isset($_GET['categoria'])){
 		$nombre = $_GET['nombre'];
@@ -11,12 +12,10 @@ include '../lib/necesita_permiso.php';
 		$contraseniaHash = password_hash($_GET['contrasenia'], PASSWORD_DEFAULT);
 		$categoria = $_GET['categoria'];
 		
-		$consulta = mysqli_query(
-			$conexion,
-			"INSERT INTO usuarios (nombre,apellido,email,usuario,contrasenia,categoria_id)
-					VALUES ('$nombre','$apellido','$email','$usuario','$contraseniaHash','$categoria')");										
+		$consulta = mysqli_query($conexion, "INSERT INTO usuarios
+												(nombre,apellido,email,usuario,contrasenia,categoria_id)
+												VALUES ('$nombre','$apellido','$email','$usuario','$contraseniaHash','$categoria')");										
 		header("Location: administrador.php");
-		exit;
 	}
 ?>
 
@@ -26,14 +25,21 @@ include '../lib/necesita_permiso.php';
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../static/css/form.css">
+	<link rel="stylesheet" type="text/css" href="formularios.css">
 	<title> Nuevo Usuario </title>
 </head>
 <body>
 <body>
 	
 	<header>
-		<?php include '../base/barra-nav.php'; ?> 
+		<div class="menu">	
+			<nav>
+				<ul>
+					<li><a href="salir.php">CERRAR SESIÓN</a></li>
+					<li><a href="pagina.html">INICIO</a></li>
+				</ul>
+			</nav>	
+		</div>
 	</header>
 
 	<div class="contenedor">

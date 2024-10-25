@@ -1,28 +1,28 @@
 <?php
-	session_start();
-	
-	include '../lib/conexion.php';
-	include '../lib/necesita_permiso.php';
+// Conecta a la BD
+require '../lib/conexion_bd.php';
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
 
-	if (isset($_GET['usuarioModificado'])) {
-		$consulta = mysqli_query($conexion,"SELECT *
-												FROM usuarios
-												WHERE usuario_id = ".$_GET['usuarioModificado']);
+if (isset($_GET['usuarioModificado'])) {
+	$consulta = mysqli_query($conexion,"SELECT *
+											FROM usuarios
+											WHERE usuario_id = ".$_GET['usuarioModificado']);
 
-		$datosUsuario = mysqli_fetch_array($consulta);
-	}
+	$datosUsuario = mysqli_fetch_array($consulta);
+}
 
-	if(isset($_GET['idUsuario'])){  //cuando se realiza el submit(abajo) le doy el ok a guardar los datos nuevos
-		$nombre = $_GET['nombre'];
-		$apellido =	$_GET['apellido'];
-		$email = $_GET['email'];
-		$categoria = $_GET['categoria'];
+if(isset($_GET['idUsuario'])){  //cuando se realiza el submit(abajo) le doy el ok a guardar los datos nuevos
+	$nombre = $_GET['nombre'];
+	$apellido =	$_GET['apellido'];
+	$email = $_GET['email'];
+	$categoria = $_GET['categoria'];
 
-		$consulta = mysqli_query($conexion, "UPDATE usuarios
-												SET nombre = '$nombre', apellido = '$apellido', email = '$email', categoria_id = '$categoria'
-												WHERE usuario_id =". $_GET['idUsuario']);										
-		header("Location: administrador.php");
-	}  
+	$consulta = mysqli_query($conexion, "UPDATE usuarios
+											SET nombre = '$nombre', apellido = '$apellido', email = '$email', categoria_id = '$categoria'
+											WHERE usuario_id =". $_GET['idUsuario']);										
+	header("Location: administrador.php");
+}  
 ?>
 
 <!DOCTYPE html>

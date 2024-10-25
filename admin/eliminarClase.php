@@ -1,6 +1,8 @@
 <?php
-include '../lib/conexion.php';
-include '../lib/necesita_permiso.php';
+// Conecta a la BD
+require '../lib/conexion_bd.php';
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
 
 // Verificar si se ha recibido un ID de clase
 if (isset($_GET['clase_id'])) {
@@ -8,7 +10,6 @@ if (isset($_GET['clase_id'])) {
     
 }
 
-    
 $consulta = mysqli_query($conexion, "DELETE FROM clases WHERE clase_id = $idClase");
 
     // Clase eliminada correctamente
@@ -39,7 +40,6 @@ $consulta = mysqli_query($conexion, "DELETE FROM clases WHERE clase_id = $idClas
             });
         </script>';
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
