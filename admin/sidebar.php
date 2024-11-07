@@ -1,16 +1,14 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-light navbar-white">
   <div class="container">
-    <a href="#" class="navbar-brand">
+    <a href="administrador.php" class="navbar-brand">
       <span class="brand-text font-weight-light">LEMA Fit</span>
     </a>
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">
         <a href="../index.php" class="nav-link">Inicio</a>
       </li>
-      
     </ul>
-
     <ul class="navbar-nav ml-auto"> <!-- Asegúrate de que este ul esté alineado a la derecha -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -57,7 +55,7 @@
 
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-        <li class="nav-item has-treeview menu-open">
+        <li class="nav-item">
           <a href="administrador.php" class="nav-link">
             <i class="nav-icon fas fa-solid fa-dumbbell"></i>
             <p class="text-center ml-2">CLASES</p>
@@ -80,9 +78,3 @@
     </nav>
   </div>
 </aside>
-<!-- Bootstrap 4 -->
-
-<!-- AdminLTE App -->
-
-
-
