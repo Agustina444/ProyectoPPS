@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LEMA Fit</title>
 	<link rel="stylesheet" type="text/css" href="static/css/index.css">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+	<title>LEMA Fit</title>
 </head>
 
 <body>
-
+	
 	<header>
 		<?php include 'lib/barra_nav.php'; ?>
-
 		<div class="contenedor-titulo">
 			<h1> POTENCIAMOS TU <br /> BIENESTAR </h1>
 			<a href="/clases/reservar.php"> Comenzá a reservar tus clases </a>
@@ -58,7 +57,10 @@
 			<a href="/usuario/registro.php"> Regístrate </a>
 		</div>
 	</section>
-
+		
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

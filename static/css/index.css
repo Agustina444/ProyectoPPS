@@ -10,6 +10,10 @@ header{
 	height: 100vh; /*siempre va a estar 100%*/
 }
 
+header .navbar{
+	background-color: transparent !important;
+}
+
 .menu {
 	display: flex;
 	align-items: center;
@@ -17,17 +21,17 @@ header{
 	margin: auto;
 }
 
-ul{ /*los ubico a la derecha*/ 
+section ul{ /*los ubico a la derecha*/ 
 	 display: flex;
 	 list-style: none; 
 	 padding: 0 40px;
 }
 
-li{ /*separo los item uno del otro*/
+section li{ /*separo los item uno del otro*/
 	margin: 0 20px;
 }
 
-li a{
+section li a{
 	color: white;
 	font-size: 15px;
 }
@@ -50,7 +54,7 @@ a{
 	margin: 0 170px;
 }
 
-h1{
+.contenedor-titulo h1{
 	color: #f2f2f2;
 	font-size: 80px;
 	width: 80%;

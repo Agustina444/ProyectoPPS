@@ -51,6 +51,7 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email'
 	<title> Registro </title>
 	<link rel="stylesheet" type="text/css" href="../static/css/form.css">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 </head>
 
 <body>

@@ -29,44 +29,14 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>Reservar Clases</title>
-
-    <!-- Bootstrap y jquery-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">LEMA Fit</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.php">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mis_reservas.php">Mis Reservas</a>
-                </li>
-                <?php if (isset($_SESSION['logueado'])) { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../lib/cerrar_sesion.php">Cerrar Sesión</a>
-                    </li>
-                <?php } else { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../usuario/login.php">Iniciar Sesión</a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
-    </div>
-</nav>
+<header>
+    <?php include '../lib/barra_nav.php'; ?>
+</header>
 
 <div class="container mt-5">
     <h2>Clases Disponibles</h2>
@@ -99,6 +69,11 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
         }
     }
 </script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 <?php mysqli_close($conexion); ?>
