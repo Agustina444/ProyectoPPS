@@ -21,6 +21,7 @@
 
 	<section id="actividades">
 		<div class="contenedor">
+			<br><br>
 			<h2> TODAS LAS ACTIVIDADES <br /> QUE BUSCAS </h2>
 			<div class="contenedorActividades">
 				<div class="clases">
@@ -48,6 +49,7 @@
 						actividades orientadas a encontrar tu bienestar integral.</p>
 				</div>
 			</div>
+			<br><br>
 		</div>
 	</section>
 

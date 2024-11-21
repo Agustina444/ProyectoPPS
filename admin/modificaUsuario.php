@@ -40,8 +40,8 @@ if(isset($_GET['idUsuario'])){  //cuando se realiza el submit(abajo) le doy el o
 		<div class="menu">	
 			<nav>
 				<ul>
-					<li><a href="salir.php">CERRAR SESION</a></li>
-					<li><a href="pagina.html">INICIO</a></li>
+					<li><a href="/lib/cerrar_sesion.php">CERRAR SESION</a></li>
+					<li><a href="/index.php">INICIO</a></li>
 				</ul>
 			</nav>	
 		</div>

@@ -97,13 +97,17 @@ if (!$resultado) {
         </div>
         <br>
         <div class="form-group text-right mr-5">
-      <input type="submit" class="btn btn-primary" value="Guardar cambios" />
-    </div>
+            <input type="submit" class="btn btn-primary" value="Guardar cambios" />
+        </div>
     </form>
 </main>
 
+<?php mysqli_close($conexion); ?>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<?php mysqli_close($conexion); ?>
+
 </body>
 </html>

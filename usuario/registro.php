@@ -95,6 +95,11 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email'
 			<input type="submit" class="boton" value="REGISTRAR" />
 		</form>
 	</div>
+	
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

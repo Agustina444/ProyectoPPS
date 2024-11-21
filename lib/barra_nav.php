@@ -3,6 +3,13 @@
 if(!isset($_SESSION)) session_start();
 ?>
 
+<style>
+    /* Personaliza el color de fondo del dropdown cuando tiene el mouse encima */
+    .dropdown-item:hover {
+        background-color: #23262a; /* Cambia a un color oscuro */
+        color: white;
+    }
+</style>
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black;">
     <a class="navbar-brand ml-1 mb-0 h1" href="/index.php">LEMA Fit</a>
     <!-- Menu hamburgesa -->
@@ -16,31 +23,35 @@ if(!isset($_SESSION)) session_start();
             <a class="nav-link text-light" href="/contacto.php">Contacto</a>
             <a class="nav-link text-light" href="/clases/lista.php">Clases</a>
             <a class="nav-link text-light" href="/tienda/productos.php">Tienda</a>
-            <?php if (isset($_SESSION['logueado']) && $_SESSION['logueado']) { // Si el usuario esta logueado ?>
-                <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] == 1) { // Es admin ?>
+            <!-- Si el usuario esta logueado -->
+            <?php if (isset($_SESSION['logueado']) && $_SESSION['logueado']) { ?>
+                <!-- Si el usuario es admin -->
+                <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] == 1) { ?>
                     <a class="nav-link text-light" href="/admin/administrador.php">Admin</a>
                 <?php } ?>
-                <a class="nav-link text-light" href="/lib/cerrar_sesion.php">Cerrar Sesión</a>
-            <?php } else { // No inicio sesión ?>
-                <a class="nav-link text-light" href="/usuario/login.php">Login</a>
-                <a class="nav-link text-light" href="/usuario/registro.php">Registro</a>
+                <!-- Muestra el dropdown de usuario -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <?php echo $_SESSION['nombre']; ?>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right bg-dark">
+                        <a class="dropdown-item text-light" href="/usuario/perfil.php">Perfil</a>
+                        <a class="dropdown-item text-light" href="/lib/cerrar_sesion.php">Cerrar Sesión</a>
+                    </div>
+                </li>
+            <!-- Si el usuario no inicio sesion -->
+            <?php } else { ?>
+                <!-- Muestra el dropdown de invitado-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-light dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Invitado
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right bg-dark">
+                        <a class="dropdown-item text-light" href="/usuario/login.php">Login</a>
+                        <a class="dropdown-item text-light" href="/usuario/registro.php">Registro</a>
+                    </div>
+                </li>
             <?php } ?>
-            <!-- perfil todo
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                Dropdown
-                </a>
-                <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-            </li>
-            -->
         </div>
     </div>
 </nav>
