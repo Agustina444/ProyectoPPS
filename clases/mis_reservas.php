@@ -36,7 +36,6 @@ $result = mysqli_query($conexion, $sql);
                     <tr>
                         <th>Clase</th>
                         <th>Horario</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,9 +43,7 @@ $result = mysqli_query($conexion, $sql);
                         <tr>
                             <td><?php echo $reserva['nombre']; ?></td>
                             <td><?php echo $reserva['horario']; ?></td>
-                            <td>
-                                <a href="cancelar_reserva.php?clase_id=<?php echo $reserva['clase_id']; ?>" class="btn btn-danger btn-sm">Cancelar</a>
-                            </td>
+                            
                         </tr>
                     <?php } ?>
                 </tbody>

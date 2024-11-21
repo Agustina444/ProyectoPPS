@@ -39,6 +39,33 @@ select{
 	margin: 3px;
 }
 
+ /* MENU DE NAVEGACIÓN */
+
+.menu {
+	background: black;
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+}
+
+.menu a{
+	text-decoration: none;
+	color: white;
+}
+
+ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around; 
+	padding: 0 40px;
+}
+
+li{
+	font-size: 15px;
+	list-style: none;
+	margin: 0 20px;
+}
+
 p{ /*El saludo*/
 	font-size: 20px;
 	font-weight: bold;

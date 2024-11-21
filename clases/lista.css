@@ -1,0 +1,49 @@
+.navbar {
+  background-color: #071013;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff; /* Cambia el color del texto a blanco para mayor contraste */
+}
+
+.navbar .nav-link:hover {
+  color: #d1d1d1; /* Color del texto al pasar el cursor */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%288%2C 8%2C 8%2C 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.card-img-top {
+  width: 100%;
+  max-height: 200px; /* Altura máxima para que todas las imágenes se ajusten sin deformarse */
+  object-fit: contain; /* Contiene la imagen dentro de los límites sin recortarla */
+  padding: 10px; /* Añade un poco de espacio alrededor si es necesario */
+  background-color: #f8f8f8; /* Fondo para las imágenes más pequeñas */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center; /* Centra el texto */
+  color: #071013; /* Color del texto, puedes cambiarlo según el diseño */
+  margin-bottom: 1.5rem; /* Espaciado debajo del título */
+}

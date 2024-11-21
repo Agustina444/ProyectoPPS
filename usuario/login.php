@@ -49,15 +49,14 @@ if (isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Login</title>
+	<title> Login </title>
 	<link rel="stylesheet" type="text/css" href="../static/css/form.css">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -88,11 +87,6 @@ if (isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
 			<p> <?php echo $msj; ?> </p>
 		<?php } ?>
 	</div>
-	
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

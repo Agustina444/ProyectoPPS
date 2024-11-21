@@ -1,0 +1,46 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-container {
+  width: 100%;
+  height: 200px; /* Establecer una altura fija para el contenedor de la imagen */
+  overflow: hidden; /* Evita que la imagen desborde */
+  display: flex; /* Flexbox para centrar la imagen */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  object-fit: contain;
+}
+
+.card-img-top {
+  max-width: 100%; /* Ajusta el ancho de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: contain; /* Mantiene la proporción de la imagen sin recortarla */
+}
+
+.text-price {
+  color: #e63946;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.btn-comprar {
+  width: 100%;
+  font-weight: bold;
+  background-color: #e63946; /* Color del botón */
+  border: none;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
