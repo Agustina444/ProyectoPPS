@@ -1,0 +1,59 @@
+.content-wrapper {
+  margin-top: 280px; /* Ajusta según la altura de tu navbar */
+  margin-left: 250px; /* Para compensar el sidebar */
+}
+
+/* Estilos del contenedor del formulario */
+form {
+  width: 600px;
+  max-width: 700px; /* Limita el ancho para centrado */
+  background-color: #f8f9fa; /* Fondo claro */
+  padding: 30px;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efecto de profundidad */
+  z-index: 2000;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+/* Estilos de encabezados y etiquetas */
+h2.text-center {
+  color: #232528; /* Color del esquema del usuario */
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #232528;
+}
+
+/* Estilo para los campos del formulario */
+.form-control,
+.form-control-file,
+.btn {
+  border-radius: 5px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+/* Botón de actualización */
+.btn-primary {
+  background-color: #e8491d; /* Color de diseño */
+  border-color: #e8491d;
+  font-weight: bold;
+  width: 100%; /* Botón ancho completo */
+  padding: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #c73e19;
+  border-color: #c73e19;
+}
+
+/* Imagen del producto */
+img {
+  border-radius: 5px;
+  margin-top: 10px;
+}

@@ -1,0 +1,47 @@
+.navbar {
+  position: fixed;
+  top: 0;
+}
+
+/* Ajusta el espacio superior de content-wrapper para evitar superposición con el navbar */
+.content-wrapper {
+  margin-top: 80px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+/* Estilos del formulario */
+form {
+  max-width: 600px; /* Limita el ancho para una mejor presentación */
+  background-color: #f8f9fa; /* Fondo claro para contraste */
+  padding: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efecto de profundidad */
+  margin-left: 100px;
+}
+
+/* Estilos de los elementos del formulario */
+.form-label {
+  font-weight: bold;
+  color: #232528; /* Color de tu diseño */
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.btn-success {
+  margin-top: 15px;
+  background-color: #e8491d; /* Color de botón en base a tu esquema */
+  border-color: #e8491d;
+  font-weight: bold;
+  width: 100%; /* Botón ancho completo */
+}
+
+/* Hover y focus */
+.btn-success:hover {
+  background-color: #c73e19;
+  border-color: #c73e19;
+}
+
+input[type="file"] {
+  border: none;
+}

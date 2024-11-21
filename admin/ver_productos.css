@@ -1,0 +1,149 @@
+.card-img-top {
+  width: 100%; /* Para que la imagen ocupe todo el ancho del contenedor */
+  height: 200px; /* Establecer una altura fija */
+  object-fit: contain; /* Mantiene la relación de aspecto y recorta la imagen si es necesario */
+}
+.card {
+  margin-top: 30px;
+  width: 250px;
+  height: 350px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+/* Contenedor de imagen */
+.card-img-container {
+  width: 100%;
+  height: 150px; /* Altura fija para todas las imágenes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ocultar cualquier exceso */
+}
+
+/* Estilo para el cuerpo de la tarjeta */
+.card-body {
+  display: flex;
+  flex-direction: column; /* Colocar el contenido en columna */
+  flex-grow: 1; /* Para ocupar el espacio disponible */
+  overflow: hidden;
+}
+
+/* Estilo para el pie de la tarjeta */
+.card-footer {
+  background-color: transparent; /* Fondo transparente */
+  border-top: none; /* Sin borde superior */
+  text-align: center; /* Centrar el texto en el pie */
+}
+
+/* Espaciado entre tarjetas */
+.row > .col-md-4 {
+  margin-bottom: 20px; /* Espaciado entre tarjetas */
+}
+
+/* Estilo para los botones */
+.card-footer {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los botones */
+  padding: 0.5rem; /* Espaciado dentro del footer */
+}
+
+.btn-modify,
+.btn-delete {
+  width: 100px; /* Ancho del botón */
+  height: 40px; /* Alto del botón */
+  display: flex;
+  justify-content: space-between; /* Centra el contenido (icono) horizontalmente */
+  align-items: center; /* Centra el contenido (icono) verticalmente */
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+}
+
+.btn-modify {
+  background-color: #007bff; /* Color del botón de modificar */
+  color: white; /* Color del icono */
+}
+
+.btn-delete {
+  background-color: #dc3545; /* Color del botón de eliminar */
+  color: white; /* Color del icono */
+}
+
+.btn-insert {
+  background-color: #28a745; /* Color de fondo para insertar */
+  margin-top: 20px;
+}
+.card-title {
+  font-family: "Poppins", sans-serif; /* Cambia 'Poppins' por la fuente que elegiste */
+  font-weight: 700; /* Negrita para mayor impacto */
+  color: #333; /* Color del texto */
+}
+/* Estilos para el Navbar */
+.navbar {
+  background-color: #071013; /* Color de fondo del navbar */
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: white; /* Color del texto de los enlaces */
+}
+
+.navbar .nav-link:hover {
+  color: #e63946; /* Color al pasar el mouse por encima */
+}
+
+/* Si usas iconos (por ejemplo, Font Awesome), asegúrate de que también sean blancos */
+.navbar .nav-link .icon {
+  color: white; /* Cambia el color de los iconos */
+}
+/* Estilos para el Aside */
+.main-sidebar {
+  background-color: #071013; /* Color de fondo del sidebar */
+}
+
+.main-sidebar .nav-link {
+  color: white; /* Color del texto de los enlaces */
+}
+
+.main-sidebar .nav-link:hover {
+  color: #e63946; /* Color al pasar el mouse por encima */
+}
+
+.main-sidebar .nav-icon {
+  color: white; /* Color de los iconos */
+}
+
+.user-panel .info a {
+  color: white; /* Color del texto del panel de usuario */
+}
+
+.user-panel .info a:hover {
+  color: #e63946; /* Color al pasar el mouse por encima */
+}
+/* Estilos para los íconos del navbar */
+.main-header .nav-link i {
+  color: white; /* Cambiar el color de los íconos a blanco */
+}
+
+.main-header .nav-link:hover i {
+  color: #e63946; /* Color al pasar el mouse por encima */
+}
+.btn-insert {
+  width: 259px;
+  padding: 10px 20px; /* Espaciado interno del botón */
+  font-size: 1rem; /* Tamaño de la fuente */
+  margin-bottom: 20px; /* Separación de las cards */
+  display: inline-block; /* Asegúrate de que el botón se comporte como un bloque */
+}
+
+.brand-text {
+  font-weight: bold; /* Negrita */
+  font-size: 1.5rem; /* Tamaño del texto; ajusta según sea necesario */
+  color: white; /* Color blanco */
+  font-family: "Roboto";
+}
+
+.text-price {
+  font-weight: bold; /* Negrita */
+  color: #e63946; /* Color del precio; puedes cambiarlo a lo que prefieras */
+  font-size: 1.2rem; /* Tamaño del texto; ajusta según sea necesario */
+}
