@@ -7,3 +7,5 @@ if(!isset($_SESSION['logueado']) || !$_SESSION['logueado']){
 	header("Location: ../usuario/login.php");
 	exit();
 }
+
+session_regenerate_id(true);
