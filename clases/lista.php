@@ -81,6 +81,7 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
                     <img src="<?php echo '/static/'.$clase['imagen_url']; ?>" class="card-img-top" alt="<?php echo $clase['nombre']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $clase['nombre']; ?></h5>
+                        <p class="card-text">Lunes a viernes</p>
                         <p class="card-text">Horario: <?php echo $clase['horario']; ?></p>
                         <?php if (in_array($clase['clase_id'], $reservas)) { ?>
                             <button class="btn btn-secondary" disabled>Registrado</button>
