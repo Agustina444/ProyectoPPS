@@ -22,7 +22,7 @@
                     <a class="nav-link text-light" href="/sede.php">Conocé nuestro gym</a>
                     <a class="nav-link text-light" href="/clases/lista.php">Clases</a>
                     <a class="nav-link text-light" href="/usuario/registro.php">Registrate</a>
-                    <a class="nav-link text-light" href="usuario/login.php">Inicia Sesión</a>
+                    <a class="nav-link text-light" href="/usuario/login.php">Inicia Sesión</a>
 
                 </div>
             </div>
