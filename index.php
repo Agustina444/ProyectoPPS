@@ -10,24 +10,8 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black;">
-            <a class="navbar-brand ml-1 mb-0 h1" href="/index.php" style="margin-left: 50px;">LEMA Fit</a>
-            <!-- Menu hamburgesa -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Items -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="navbar-nav ms-auto" style="margin-right: 50px;">
-                    <a class="nav-link text-light" href="/clases/lista.php">Conocé nuestro gym</a>
-                    <a class="nav-link text-light" href="/clases/lista.php">Clases</a>
-                    <a class="nav-link text-light" href="/tienda/productos.php">Tienda</a>
-                    <a class="nav-link text-light" href="/clases/lista.php">Registrate</a>
-                    <a class="nav-link text-light" href="/contacto.php">Inicia Sesión</a>
-
-                </div>
-            </div>
-        </nav>
+        <!-- Barra de navegacion -->
+        <?php include 'lib/barra_nav.php'; ?>
 
     	<header>
     		<div class="contenedor-titulo">
@@ -82,7 +66,9 @@
     		</div>
     	</section>
 
+        <!-- Popperjs -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <!-- Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     </body>
 </html>

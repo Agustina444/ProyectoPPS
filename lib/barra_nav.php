@@ -11,14 +11,14 @@ if(!isset($_SESSION)) session_start();
     }
 </style>
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black;">
-    <a class="navbar-brand ml-1 mb-0 h1" href="/index.php">LEMA Fit</a>
+    <a class="navbar-brand ms-2 mb-0 h1" href="/index.php">LEMA Fit</a>
     <!-- Menu hamburgesa -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Items -->
     <div class="collapse navbar-collapse mr-1" id="navbarSupportedContent">
-        <div class="navbar-nav ml-auto">
+        <div class="navbar-nav ms-auto">
             <a class="nav-link text-light" href="/index.php">Inicio</a>
             <a class="nav-link text-light" href="/contacto.php">Contacto</a>
             <a class="nav-link text-light" href="/clases/lista.php">Clases</a>
@@ -31,10 +31,10 @@ if(!isset($_SESSION)) session_start();
                 <?php } ?>
                 <!-- Muestra el dropdown de usuario -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <?php echo $_SESSION['nombre']; ?>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right bg-dark">
+                    <div class="dropdown-menu dropdown-menu-end bg-dark">
                         <a class="dropdown-item text-light" href="/usuario/perfil.php">Perfil</a>
                         <a class="dropdown-item text-light" href="/lib/cerrar_sesion.php">Cerrar Sesión</a>
                     </div>
@@ -43,10 +43,10 @@ if(!isset($_SESSION)) session_start();
             <?php } else { ?>
                 <!-- Muestra el dropdown de invitado-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-light dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link text-light dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Invitado
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right bg-dark">
+                    <div class="dropdown-menu dropdown-menu-end bg-dark">
                         <a class="dropdown-item text-light" href="/usuario/login.php">Login</a>
                         <a class="dropdown-item text-light" href="/usuario/registro.php">Registro</a>
                     </div>
