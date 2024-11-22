@@ -10,23 +10,6 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black;">
-            <a class="navbar-brand ml-1 mb-0 h1" href="/index.php" style="margin-left: 50px;">LEMA Fit</a>
-            <!-- Menu hamburgesa -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Items -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="navbar-nav ms-auto" style="margin-right: 50px;">
-                    <a class="nav-link text-light" href="/sede.php">Conocé nuestro gym</a>
-                    <a class="nav-link text-light" href="/clases/lista.php">Clases</a>
-                    <a class="nav-link text-light" href="/usuario/registro.php">Registrate</a>
-                    <a class="nav-link text-light" href="/usuario/login.php">Inicia Sesión</a>
-
-                </div>
-            </div>
-        </nav>
         <!-- Barra de navegacion -->
         <?php include 'lib/barra_nav.php'; ?>
 

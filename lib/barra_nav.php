@@ -19,12 +19,11 @@ if(!isset($_SESSION)) session_start();
     <!-- Items -->
     <div class="collapse navbar-collapse mr-1" id="navbarSupportedContent">
         <div class="navbar-nav ms-auto">
-            <a class="nav-link text-light" href="/index.php">Inicio</a>
-            <a class="nav-link text-light" href="/contacto.php">Contacto</a>
-            <a class="nav-link text-light" href="/clases/lista.php">Clases</a>
-            <a class="nav-link text-light" href="/tienda/productos.php">Tienda</a>
             <!-- Si el usuario esta logueado -->
             <?php if (isset($_SESSION['logueado']) && $_SESSION['logueado']) { ?>
+                <a class="nav-link text-light" href="/contacto.php">Contacto</a>
+                <a class="nav-link text-light" href="/clases/lista.php">Clases</a>
+                <a class="nav-link text-light" href="/tienda/productos.php">Tienda</a>
                 <!-- Si el usuario es admin -->
                 <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] == 1) { ?>
                     <a class="nav-link text-light" href="/admin/administrador.php">Admin</a>
@@ -41,6 +40,8 @@ if(!isset($_SESSION)) session_start();
                 </li>
             <!-- Si el usuario no inicio sesion -->
             <?php } else { ?>
+                <a class="nav-link text-light" href="/sede.php">Conocé nuestro gym</a>
+                <a class="nav-link text-light" href="/contacto.php">Contacto</a>
                 <!-- Muestra el dropdown de invitado-->
                 <li class="nav-item dropdown">
                     <a class="nav-link text-light dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
