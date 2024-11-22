@@ -51,6 +51,7 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email'
 	<title> Registro </title>
 	<link rel="stylesheet" type="text/css" href="../static/css/form.css">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -94,6 +95,11 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email'
 			<input type="submit" class="boton" value="REGISTRAR" />
 		</form>
 	</div>
+	
+	<!-- Popperjs -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
