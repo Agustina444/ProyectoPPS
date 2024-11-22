@@ -74,6 +74,37 @@ if (!empty($carrito)) {
     <script src="https://sdk.mercadopago.com/js/v2"></script>
 </head>
 <body>
+
+<!-- Barra de nav -->
+<link rel="stylesheet" href="/static/css/barra_nav.css">
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">LEMA Fit</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav d-flex align-items-center ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.php">Inicio</a>
+                </li>
+                <li class="nav-item d-flex align-items-center ml-3">
+                    <a class="nav-link" href="productos.php">Tienda</a>
+                </li>
+                <?php if (isset($_SESSION['logueado'])) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger ml-5" href="../lib/cerrar_sesion.php">Cerrar Sesión</a>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../usuario/login.php">Iniciar Sesión</a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</nav> 
+
     <div class="container mt-5">
         <h2 class="text-center mb-4">Carrito de Compras</h2>
 
