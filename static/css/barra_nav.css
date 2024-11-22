@@ -12,7 +12,6 @@ nav {
 nav ul {
   list-style-type: none; /* Elimina viñetas de la lista */
   margin: 0; /* Elimina el margen */
-  padding: 10px 0; /* Espaciado vertical para el menú */
   display: flex; /* Usa flexbox para alinear los elementos horizontalmente */
   justify-content: space-around; /* Espacia los elementos de manera uniforme */
 }

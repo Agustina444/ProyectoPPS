@@ -1,16 +1,5 @@
 <!DOCTYPE html>
  
-
-
-<?php 
-
-
-
-?>
-
-
-
-  
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,44 +9,45 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="productos.css">
-    
-
-
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <title>Productos</title>
 </head>
 
 <body>
-    <header>
-    <?php session_start(); ?>
+<header>
+<?php session_start(); ?>
 <link rel="stylesheet" href="/static/css/barra_nav.css">
-<nav>
-    <ul>
-        <li><a href="/index.php">INICIO</a></li>
-        <li><a href="/sede.php">SEDE</a></li>
-        <li><a href="/contacto.php">CONTACTO</a></li>
-        <li><a href="/clases/lista.php">CLASES</a></li>
-        <li>
-    <a href="ver_carrito.php">
-        <i class="fas fa-shopping-cart"></i> Carrito
-        <span>(<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</span>
-    </a>
-</li>
-        <?php if (isset($_SESSION['logueado']) && $_SESSION['logueado']) { ?>
-            <?php if ($_SESSION['categoria'] == 1) { // es admin ?>
-                <li><a href="/admin/administrador.php">ADMIN</a></li>
-            <?php } ?>
-            <li><a href="/lib/cerrar_sesion.php">CERRAR SESIÓN</a></li>
-        <?php } else { ?>
-            <li><a href="/usuario/login.php">INGRESAR</a></li>
-            <li><a href="/usuario/registro.php">REGISTRO</a></li>
-        <?php } ?>
-    </ul>
-</nav>
-
-        
-    </header>
-
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">LEMA Fit</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav d-flex align-items-center ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.php">Inicio</a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="ver_carrito.php">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                        <span>(<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)</span>
+                    </a>
+                </li>
+                <?php if (isset($_SESSION['logueado'])) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger ml-5" href="../lib/cerrar_sesion.php">Cerrar Sesión</a>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../usuario/login.php">Iniciar Sesión</a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</nav>    
+</header>
 <?php 
 
 require '../lib/esta_logueado.php';
