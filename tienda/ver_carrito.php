@@ -8,9 +8,6 @@ use MercadoPago\Resources\Preference;
 use MercadoPago\Resources\Preference\Item;
 use MercadoPago\Client\Preference\PreferenceClient;
 
-
-
-
 // Verifica si la clase Preference se puede cargar
 if (!class_exists('MercadoPago\Resources\Preference')) {
     die("La clase Preference NO se pudo cargar. Verifica la instalación del SDK de Mercado Pago.");
@@ -62,14 +59,8 @@ if (!empty($carrito)) {
     $preference->binary_mode = "true";
     // Accede al ID de la preferencia
     $preferenceId = $createdPreference->id; // Aquí tienes el ID de la preferencia
-    echo "ID de la preferencia: " .$preferenceId;
-    
-   
+    //echo "ID de la preferencia: " .$preferenceId;
 }
-else{
-    echo "JAJAA";
-}
-
 
 ?>
 
