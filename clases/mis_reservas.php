@@ -8,6 +8,13 @@ require '../lib/esta_logueado.php';
 // Obtener el ID del usuario
 $usuario_id = $_SESSION['id_usuario'];
 
+// Eliminar reserva si el usuario toco el boton
+if (isset($_POST['clase_id'])) {
+    $id = $_POST['clase_id'];
+    $sql = "DELETE FROM reservas WHERE clase_id = '$id'";
+    mysqli_query($conexion, $sql);
+}
+
 // Consultar las reservas del usuario
 $sql = "
     SELECT reservas.clase_id, clases.nombre, clases.horario 
@@ -67,6 +74,7 @@ $result = mysqli_query($conexion, $sql);
                     <tr>
                         <th>Clase</th>
                         <th>Horario</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -74,7 +82,12 @@ $result = mysqli_query($conexion, $sql);
                         <tr>
                             <td><?php echo $reserva['nombre']; ?></td>
                             <td><?php echo $reserva['horario']; ?></td>
-                            
+                            <td>
+                                <form action="" method="POST" onsubmit="return confirm('¿Estas seguro de cancelar la reserva?');">
+                                    <input type="hidden" name="clase_id" value="<?= $reserva['clase_id']; ?>">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -82,8 +95,9 @@ $result = mysqli_query($conexion, $sql);
         <?php } else { ?>
             <p>No tienes reservas.</p>
         <?php } ?>
-        
+
     </div>
+
 </body>
 </html>
 <?php mysqli_close($conexion); ?>

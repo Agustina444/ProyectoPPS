@@ -5,16 +5,23 @@ if(!isset($_SESSION)) session_start();
 // Conecta a la BD
 require '../lib/conexion_bd.php';
 
+$usuario_id = $_SESSION['id_usuario'];
+
+// Realiza la reserva si el usuario toco el boton de reservar
+if (isset($_POST['clase_id'])) {
+    $clase_id = $_POST['clase_id'];
+    $sql = "INSERT INTO reservas (usuario_id, clase_id) VALUES ('$usuario_id', '$clase_id')";
+    mysqli_query($conexion, $sql);
+}
+
 // Obtener clases
 $sql = "SELECT * FROM clases";
 $result = mysqli_query($conexion,$sql);
-
-$usuario_id = $_SESSION['id_usuario'];
 $reservas = [];
 
 // Obtener reservas
 $sql = "
-    SELECT clase_id
+    SELECT usuario_id, clase_id
     FROM reservas
     WHERE usuario_id = '$usuario_id'
 ";
@@ -86,7 +93,10 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
                         <?php if (in_array($clase['clase_id'], $reservas)) { ?>
                             <button class="btn btn-secondary" disabled>Registrado</button>
                         <?php } else { ?>
-                            <button class="btn btn-primary" onclick="confirmarReserva(<?php echo $clase['clase_id']; ?>)">Reservar</button>
+                            <form action="" method="POST" onsubmit="return confirm('¿Desea confirmar la reservar para esta clase?');">
+                                <input type="hidden" name="clase_id" value="<?= $clase['clase_id']; ?>">
+                                <button type="submit" class="btn btn-primary">Reservar</button>
+                            </form>
                         <?php } ?>
                     </div>
                 </div>
