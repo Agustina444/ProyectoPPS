@@ -74,38 +74,38 @@ if (!$resultado) {
     <hr>
     <form action="" method="post" autocomplete="off">
         <div class="px-5">
-            <div class="form-group">
+            <br>    
+            <div class="mb-3">
                 <label for="usuario">Usuario</label>
                 <input type="text" class="form-control" name="usuario" id="usuario" value="<?= $usuario['usuario']; ?>" />
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" name="nombre" id="nombre" value="<?= $usuario['nombre']; ?>" />
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="apellido">Apellido</label>
                 <input type="text" class="form-control" name="apellido" id="apellido" value="<?= $usuario['apellido']; ?>" />
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" name="email" id="email" value="<?= $usuario['email']; ?>" />
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="contra">Contraseña</label>
                 <input type="password" class="form-control" name="contra" id="contra" />
             </div>
         </div>
         <br>
-        <div class="form-group text-right mr-5">
+        <div class="text-end me-5">
             <input type="submit" class="btn btn-primary" value="Guardar cambios" />
         </div>
+        <br>
     </form>
 </main>
 
 <?php mysqli_close($conexion); ?>
 
-<!-- Popperjs -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
