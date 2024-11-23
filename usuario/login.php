@@ -34,7 +34,13 @@ if (isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
 			$_SESSION['id_usuario'] = $datosUsuario['usuario_id'];
 			$_SESSION['categoria'] = $datosUsuario['categoria_id'];
 
-			header("Location: ../index.php"); //es suscriptor
+			if ($_SESSION['categoria'] == 1) {
+				// Si el usuario es admin
+				header("Location: ../admin/administrador.php");
+			} else {
+				// Si es un usuario normal
+				header("Location: ../index.php"); //
+			}
 			exit();
 			
 		} else {
