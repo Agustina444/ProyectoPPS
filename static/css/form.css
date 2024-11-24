@@ -91,3 +91,25 @@ p{ /*El saludo*/
 h3{
 	text-align: center;
 }
+
+
+
+/* SEDES */
+
+.sedes{
+	background-image: url("/static/img/gymMoron.jpg");
+	background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+	color: white;
+	display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+.sedes div{
+	justify-content: center;
+    display: flex;
+	grid-gap: 10px;
+}
