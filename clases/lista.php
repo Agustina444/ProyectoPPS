@@ -36,17 +36,9 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservar Clases</title>
-
-    <!-- Bootstrap y jquery-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="lista.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
-
-    
+    <title>Reservar Clases</title>
 </head>
 <body>
 
@@ -78,10 +70,9 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
     </div>
 </nav>
 
-<div class="container mt-5">
-    <h2>Clases Disponibles</h2>
+<div class="container mt-4">
+    <h2 class="mb-4">Clases Disponibles</h2>
     <div class="row">
-
         <?php while ($clase = mysqli_fetch_assoc($result)) { ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
@@ -102,9 +93,9 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
                 </div>
             </div>
         <?php } ?>
-
     </div>
 </div>
+<br>
 
 <script>
     function confirmarReserva(claseId) {
@@ -113,6 +104,11 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
         }
     }
 </script>
+
+<!-- Bootstrap y jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<?php mysqli_close($conexion); ?>
 </body>
 </html>
-<?php mysqli_close($conexion); ?>
