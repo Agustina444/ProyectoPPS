@@ -1,21 +1,19 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
- 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/css/tienda.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="productos.css">
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="productos.css">
     <title>Productos</title>
 </head>
 
 <body>
 <header>
-<?php session_start(); ?>
 <link rel="stylesheet" href="/static/css/barra_nav.css">
 <nav class="navbar navbar-expand-lg">
     <div class="container">
@@ -46,10 +44,10 @@
             </ul>
         </div>
     </div>
-</nav>    
+</nav>
+
 </header>
 <?php 
-
 require '../lib/esta_logueado.php';
 // Conectar a la base de datos
 include '../lib/conexion_bd.php';
@@ -86,7 +84,6 @@ if (mysqli_num_rows($result) > 0) {
         echo '<button type="submit" class="btn btn-danger btn-sm">Agregar al Carrito</button>';
         echo '</form>';
         echo '</div>';
-
         echo '</div>'; 
         echo '</div>'; 
     }
@@ -98,26 +95,15 @@ if (mysqli_num_rows($result) > 0) {
     echo '<h1 class="text-center">No hay productos disponibles.</h1>';
     echo '</div>';
 }
-
-
-
-
-// Cerrar conexión
-mysqli_close($conexion);
+    // Cerrar conexión
+    mysqli_close($conexion);
 ?>
-
-
-<script>
-
-   
-</script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Mercado pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
 
 </body>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 </html>
-

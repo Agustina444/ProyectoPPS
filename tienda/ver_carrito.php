@@ -66,44 +66,45 @@ if (!empty($carrito)) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    
 </head>
-<body>
 
-<!-- Barra de nav -->
-<link rel="stylesheet" href="/static/css/barra_nav.css">
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand" href="#">LEMA Fit</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav d-flex align-items-center ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.php">Inicio</a>
-                </li>
-                <li class="nav-item d-flex align-items-center ml-3">
-                    <a class="nav-link" href="productos.php">Tienda</a>
-                </li>
-                <?php if (isset($_SESSION['logueado'])) { ?>
+<body>
+    <!-- Barra de nav -->
+    <link rel="stylesheet" href="/static/css/barra_nav.css">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">LEMA Fit</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav d-flex align-items-center ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-danger ml-5" href="../lib/cerrar_sesion.php">Cerrar Sesión</a>
+                        <a class="nav-link" href="../index.php">Inicio</a>
                     </li>
-                <?php } else { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../usuario/login.php">Iniciar Sesión</a>
+                    <li class="nav-item d-flex align-items-center ml-3">
+                        <a class="nav-link" href="productos.php">Tienda</a>
                     </li>
-                <?php } ?>
-            </ul>
+                    <?php if (isset($_SESSION['logueado'])) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-danger ml-5" href="../lib/cerrar_sesion.php">Cerrar Sesión</a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../usuario/login.php">Iniciar Sesión</a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav> 
+    </nav> 
 
     <div class="container mt-5">
         <h2 class="text-center mb-4">Carrito de Compras</h2>
@@ -139,7 +140,6 @@ if (!empty($carrito)) {
                                     </form>
                                 </td>
                             </tr>
-                            <?php $total += $producto['precio'] * $producto['cantidad']; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -157,7 +157,6 @@ if (!empty($carrito)) {
     </div>
 
     
-
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const mp = new MercadoPago('APP_USR-3b322bd8-f5d7-4466-8d8a-e3162704777b', {
@@ -180,14 +179,15 @@ if (!empty($carrito)) {
         } else {
             console.error("La preferencia de pago no está definida.");
         }
-
         // Check if the wallet_container exists
-       
     });
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Mercado pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
 </body>
 </html>
