@@ -4,6 +4,12 @@
   // Comienza sesión y verifica si el usuario está logueado
   require '../lib/esta_logueado.php';
 
+  if ( $_SESSION['categoria'] != 1) {
+    // Si no es administrador, lo redirigimos a una página de error o al inicio
+    header("Location: error_page.php");
+    exit();
+  }
+
   // Consulta para obtener los datos de los usuarios, incluyendo las fechas de inicio, fin y el estado de es_premium
   $usuarios = mysqli_query($conexion, "SELECT usuario, email, usuario_id, fecha_inicio, fecha_fin, es_premium
   FROM usuarios");

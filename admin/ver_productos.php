@@ -21,6 +21,12 @@ require '../lib/conexion_bd.php';
 // Comienza sesión y verifica si el usuario está logueado
 require '../lib/esta_logueado.php';
 
+if ( $_SESSION['categoria'] != 1) {
+    // Si no es administrador, lo redirigimos a una página de error o al inicio
+    header("Location: error_page.php");
+    exit();
+  }
+
 $sql = "SELECT p.*, c.nombre AS categoria_nombre FROM productos p JOIN categorias c ON p.categoria_id = c.id";
 $result = mysqli_query($conexion, $sql);
 

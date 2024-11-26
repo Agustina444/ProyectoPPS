@@ -31,6 +31,7 @@ $result = mysqli_query($conexion, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="lista.css">
     <title>Mis Reservas</title>
 </head>
@@ -68,8 +69,8 @@ $result = mysqli_query($conexion, $sql);
 <div class="container mt-4">
     <h2 class="mb-4">Mis Reservas</h2>
     <?php if (mysqli_num_rows($result) > 0) { ?>
-        <table class="table">
-            <thead>
+        <table class="table table-bordered text-center">
+            <thead class= "table-dark">
                 <tr>
                     <th>Clase</th>
                     <th>Horario</th>
