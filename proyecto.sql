@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2024 a las 23:31:23
+-- Tiempo de generación: 26-11-2024 a las 19:28:46
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -78,12 +78,9 @@ CREATE TABLE `clases` (
 --
 
 INSERT INTO `clases` (`clase_id`, `nombre`, `horario`, `imagen_url`) VALUES
-(43, 'BOX', '20:00:00', 'uploads/clases/e-portada-boxeadora.jpg'),
-(44, 'MARIANO', '15:00:00', 'uploads/clases/55939400_2307054749338684_1416956534683860992_n.jpg'),
-(45, 'fghfgh', '20:00:00', 'uploads/clases/whey-protein-vainilla-ice-cream-ena-x-454-grs-proteina.jpg'),
-(46, 'gyutyutyu', '20:00:00', 'uploads/clases/456483494_900342952143806_3327254521803100364_n.jpg'),
-(47, '424141', '20:00:00', 'uploads/clases/e-portada-boxeadora.jpg'),
-(48, '444441', '21:00:00', 'uploads/clases/55939400_2307054749338684_1416956534683860992_n.jpg');
+(49, 'Boxeo', '22:00:00', '../static/uploads/clases/1730542690_natacion.png'),
+(50, 'TAEKUONDO', '19:00:00', '../static/uploads/clases/1732644474_Veauthier_Finckensteinallee_01©Veauthier.jpg'),
+(52, 'YOGA ', '12:00:00', '../static/uploads/clases/yoga-7140566_640.jpg');
 
 -- --------------------------------------------------------
 
@@ -128,9 +125,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `categoria_id`, `stock`, `fecha_agregado`, `imagen_url`) VALUES
-(7, 'PROTEINA WHEY', 'SUPLEMENTO DEPORTIVO A BASE DE LECHE', 13500.00, 1, 2500, '2024-10-07 02:37:47', 'uploads/fitness.jpg'),
-(8, 'BARRA DE MUSCULATURA', 'PARA LA NUCA', 12500.00, 2, 1500, '2024-10-07 02:45:29', 'uploads/musculacion.jpg'),
-(9, 'PROTEINA WHEY', 'PROTEINA POSTA', 32000.00, 1, 5000, '2024-10-07 02:49:15', 'uploads/whey-protein-vainilla-ice-cream-ena-x-454-grs-proteina.jpg');
+(12, 'hfghfghfgh', 'fghfghfg', 2000.00, 1, 200, '2024-10-22 02:01:50', '../static/uploads/456483494_900342952143806_3327254521803100364_n.jpg'),
+(13, 'Barra', 'BARRA MUSCULATURA ', 2500.00, 2, 6000, '2024-11-02 10:37:39', '../static/uploads/people-3239249_640.jpg'),
+(14, 'PASTILLAS ', 'PASTILLAS PARA DORMIR ', 2500.00, 1, 3000, '2024-11-02 10:39:05', '../static/uploads/tablets-943765_640.jpg'),
+(15, 'CINTA CORRER', 'PARA TROTAR', 6000.00, 1, 3000, '2024-11-02 10:56:54', '../static/uploads/t8p5rp7ydkg61.jpg');
 
 -- --------------------------------------------------------
 
@@ -153,7 +151,10 @@ INSERT INTO `reservas` (`usuario_id`, `clase_id`) VALUES
 (3, 3),
 (0, 1),
 (0, 4),
-(6, 2);
+(6, 2),
+(6, 45),
+(11, 45),
+(6, 52);
 
 -- --------------------------------------------------------
 
@@ -168,15 +169,19 @@ CREATE TABLE `usuarios` (
   `email` varchar(20) NOT NULL,
   `usuario` varchar(20) NOT NULL,
   `contrasenia` varchar(200) NOT NULL,
-  `categoria_id` int(11) NOT NULL
+  `categoria_id` int(11) NOT NULL,
+  `fecha_inicio` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
+  `es_premium` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`usuario_id`, `nombre`, `apellido`, `email`, `usuario`, `contrasenia`, `categoria_id`) VALUES
-(6, 'Lucas', 'Gordillo', 'Gordillolucas26@yaho', 'Lucas666', '$2y$10$.JR000skpRFMgYOueF9M3eMehq3jUHiJ6kvJEIV/ppxzGsyrk6TXm', 1);
+INSERT INTO `usuarios` (`usuario_id`, `nombre`, `apellido`, `email`, `usuario`, `contrasenia`, `categoria_id`, `fecha_inicio`, `fecha_fin`, `es_premium`) VALUES
+(6, 'Lucas', 'Gordillo', 'gordillolucas26@yaho', 'Lucas666', '$2y$10$.JR000skpRFMgYOueF9M3eMehq3jUHiJ6kvJEIV/ppxzGsyrk6TXm', 1, '2024-11-14', '2024-12-14', 1),
+(11, 'Agustina', 'Lanosa', 'lanosa@lanosa', 'Agus666', '$2y$10$TJWi60yQ843uKCfCOTmSCuJMXyP/K/fV9yk9hKmAIA2TI0cDgdl8u', 2, NULL, NULL, 0);
 
 --
 -- Índices para tablas volcadas
@@ -240,7 +245,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clases`
 --
 ALTER TABLE `clases`
-  MODIFY `clase_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `clase_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
@@ -252,13 +257,13 @@ ALTER TABLE `contactos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
