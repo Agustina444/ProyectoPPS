@@ -37,6 +37,7 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="lista.css">
     <title>Reservar Clases</title>
 </head>
@@ -70,13 +71,25 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
     </div>
 </nav>
 
+<?php 
+$consulta_premium = "SELECT es_premium FROM usuarios WHERE usuario_id = $usuario_id";
+$resultado_premium = mysqli_query($conexion, $consulta_premium);
+
+// Verifica si el usuario es premium
+$es_premium = 0; // Por defecto no es premium
+if ($fila = mysqli_fetch_assoc($resultado_premium)) {
+    $es_premium = $fila['es_premium'];
+}
+
+?>
+
 <div class="container mt-4">
     <h2 class="mb-4">Clases Disponibles</h2>
     <div class="row">
         <?php while ($clase = mysqli_fetch_assoc($result)) { ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="<?php echo '/static/'.$clase['imagen_url']; ?>" class="card-img-top" alt="<?php echo $clase['nombre']; ?>">
+                    <img src="<?php echo $clase['imagen_url']; ?>" class="card-img-top" alt="<?php echo $clase['nombre']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $clase['nombre']; ?></h5>
                         <p class="card-text">Lunes a viernes</p>
@@ -84,11 +97,19 @@ while ($row = mysqli_fetch_assoc($reservas_result)) {
                         <?php if (in_array($clase['clase_id'], $reservas)) { ?>
                             <button class="btn btn-secondary" disabled>Registrado</button>
                         <?php } else { ?>
+
+                            <?php if ($es_premium == 1) { ?>
+
                             <form action="" method="POST" onsubmit="return confirm('¿Desea confirmar la reservar para esta clase?');">
                                 <input type="hidden" name="clase_id" value="<?= $clase['clase_id']; ?>">
                                 <button type="submit" class="btn btn-primary">Reservar</button>
+                                <?php } else { ?>
+                                    <?php if ($es_premium != 1) { ?>
+                                    <a href="../index.php"><button type="disabled" class="btn btn-suscribirse">Hazte Premium!</button></a>
+                                    <?php }  ?>
                             </form>
                         <?php } ?>
+                        <?php }  ?>
                     </div>
                 </div>
             </div>

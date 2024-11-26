@@ -4,34 +4,37 @@
   // Comienza sesión y verifica si el usuario está logueado
   require '../lib/esta_logueado.php';
 
-	//consulta para ver datos de esas 2 tablas
-	$clases = mysqli_query($conexion, " SELECT * 
-											FROM clases");
+  if ( $_SESSION['categoria'] != 1) {
+    // Si no es administrador, lo redirigimos a una página de error o al inicio
+    header("Location: error_page.php");
+    exit();
+  }
 
-	$usuarios = mysqli_query($conexion, "SELECT usuario, email, usuario_id
-											FROM usuarios");
+  // Consulta para obtener los datos de los usuarios, incluyendo las fechas de inicio, fin y el estado de es_premium
+  $usuarios = mysqli_query($conexion, "SELECT usuario, email, usuario_id, fecha_inicio, fecha_fin, es_premium
+  FROM usuarios");
 
-	//consulta para eliminar alguno de sus datos
-	if(isset($_GET['claseEliminada'])){     
-		$eliminar = $_GET['claseEliminada'];
+  // Consulta para eliminar alguno de sus datos
+  if(isset($_GET['claseEliminada'])){     
+    $eliminar = $_GET['claseEliminada'];
 
-		mysqli_query($conexion, "DELETE 
-									FROM clases
-									WHERE clase_id = '$eliminar'");
-		header("Location: administrador.php");
-		exit();
-	}
+    mysqli_query($conexion, "DELETE 
+                            FROM clases
+                            WHERE clase_id = '$eliminar'");
+    header("Location: administrador.php");
+    exit();
+  }
 
-	if(isset($_GET['usuarioEliminado'])){     
-		$eliminar = $_GET['usuarioEliminado'];
+  if(isset($_GET['usuarioEliminado'])){     
+    $eliminar = $_GET['usuarioEliminado'];
 
-		mysqli_query($conexion, "DELETE 
-									FROM usuarios
-									WHERE usuario_id = '$eliminar'");
-		header("Location: usuarios.php");
-		exit();
-	}
-    ?>
+    mysqli_query($conexion, "DELETE 
+                            FROM usuarios
+                            WHERE usuario_id = '$eliminar'");
+    header("Location: usuarios.php");
+    exit();
+  }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,21 +42,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   <link rel="stylesheet" href="/static/css/custom.css">
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Document</title>
-
-    
- 	
 </head>
 <body>
 
 <?php include "sidebar.php"; ?>
 
-  <div class="content-wrapper">
+<div class="content-wrapper">
   <!-- Cabecera del contenido -->
   <section class="content-header">
     <div class="container-fluid">
@@ -76,34 +75,43 @@
                 <th scope="col">#</th>
                 <th scope="col">User</th>
                 <th scope="col">Email</th>
+                <th scope="col">Fecha Inicio</th>
+                <th scope="col">Fecha Fin</th>
+                <th scope="col">Es Premium</th> <!-- Nueva columna para es_premium -->
                 <th scope="col">Modificar</th>
                 <th scope="col">Eliminar</th>
               </tr>
             </thead>
             <tbody>
-              <?php while ($recorroUsuarios = mysqli_fetch_array($usuarios)){ ?>
+              <?php while ($recorroUsuarios = mysqli_fetch_array($usuarios)) { ?>
                 <tr>
                   <th scope="row"><?php echo $recorroUsuarios['usuario_id'] ?></th>
-                  <td class="fw-bold"><?php echo $recorroUsuarios['usuario'] ?> </td>
-                  <td><?php echo $recorroUsuarios['email'] ?> </td>
+                  <td class="fw-bold"><?php echo $recorroUsuarios['usuario'] ?></td>
+                  <td><?php echo $recorroUsuarios['email'] ?></td>
+                  <td><?php echo $recorroUsuarios['fecha_inicio'] ?></td>
+                  <td><?php echo $recorroUsuarios['fecha_fin'] ?></td>
+                  <td>
+                    <!-- Mostrar si el usuario es premium o no -->
+                    <?php echo $recorroUsuarios['es_premium'] == 1 ? 'Sí' : 'No'; ?>
+                  </td>
                   <td>
                     <form action="modificaUsuario.php" method="get">
-                    <button type="submit" class="btn btn-warning">
-                        <i class="fas fa-pencil-alt"></i> 
-                     </button>
+                      <button type="submit" class="btn btn-warning">
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
                       <input type="hidden" name="usuarioModificado" value="<?php echo $recorroUsuarios['usuario_id'] ?>"/>
                     </form>
                   </td>
                   <td>
                     <form action="" method="get" id="formEliminar<?php echo $recorroUsuarios['usuario_id']; ?>">
-                    <button type="button" class="btn btn-danger" onclick="confirmarEliminacion(<?php echo $recorroUsuarios['usuario_id']; ?>)">
-                    <i class="fas fa-trash"></i>
-                        </button>
+                      <button type="button" class="btn btn-danger" onclick="confirmarEliminacion(<?php echo $recorroUsuarios['usuario_id']; ?>)">
+                        <i class="fas fa-trash"></i>
+                      </button>
                       <input type="hidden" name="usuarioEliminado" value="<?php echo $recorroUsuarios['usuario_id'] ?>"/>
                     </form>
                   </td>
                 </tr>
-              <?php } ?>  
+              <?php } ?>
             </tbody>
           </table>
         </div>
@@ -111,27 +119,6 @@
     </div>
   </section>
 </div>
-
-<script>
-function confirmarEliminacion(usuarioId) {
-  Swal.fire({
-    title: '¿Estás seguro?',
-    text: "¡No podrás revertir esta acción!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Sí, eliminar',
-    cancelButtonText: 'Cancelar'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      // Enviar el formulario correspondiente
-      document.getElementById('formEliminar' + usuarioId).submit();
-    }
-  })
-}
-</script>
-
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -141,4 +128,6 @@ function confirmarEliminacion(usuarioId) {
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
     
 </body>
+</html>
+
 </html>

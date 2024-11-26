@@ -21,6 +21,12 @@ require '../lib/conexion_bd.php';
 // Comienza sesión y verifica si el usuario está logueado
 require '../lib/esta_logueado.php';
 
+if ( $_SESSION['categoria'] != 1) {
+    // Si no es administrador, lo redirigimos a una página de error o al inicio
+    header("Location: error_page.php");
+    exit();
+  }
+
 $sql = "SELECT p.*, c.nombre AS categoria_nombre FROM productos p JOIN categorias c ON p.categoria_id = c.id";
 $result = mysqli_query($conexion, $sql);
 
@@ -38,7 +44,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<div class="col-md-4 mb-4 d-flex align-items-stretch">';
         echo '<div class="card border-0 h-100" style="background-color: #f8f9fa; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">'; // Tarjeta con sombra y bordes redondeados
         echo '<div style="width: 100%; height: 100px; overflow: hidden;">';
-        echo '<img src="/static/' . $producto['imagen_url'] . '" class="card-img-top" alt="' . $producto['nombre'] . '" style="width: 100%; height: 100%; object-fit: contain;">'; // Imagen ajustada para llenar el contenedor
+        echo '<img src="' . $producto['imagen_url'] . '" class="card-img-top" alt="' . $producto['nombre'] . '" style="width: 100%; height: 100%; object-fit: contain;">'; // Imagen ajustada para llenar el contenedor
         echo '</div>';
         echo '<div class="card-body d-flex flex-column">';
         echo '<h5 class="card-title mb-3" style="font-weight: 700; color: #333;">' . htmlspecialchars($producto['nombre']) . '</h5>';

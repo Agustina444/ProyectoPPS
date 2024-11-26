@@ -1,0 +1,66 @@
+body {
+  background-color: #232528;
+}
+
+.card {
+  margin-top: -50px;
+}
+
+h2 {
+  height: 232px;
+  font-size: 50px !important;
+}
+
+.btn {
+  background-color: rgb(218, 69, 0);
+  color: white;
+  width: 200px;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.card {
+  border: 3px solid rgb(218, 69, 0);
+  border-radius: 10px;
+}
+
+.card-text {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+.social-icon {
+  font-size: 82px;
+  color: rgb(218, 69, 0);
+}
+
+.nuestras-redes {
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.social-icon2 {
+  font-size: 40px;
+  color: rgb(218, 69, 0);
+  text-decoration: none;
+}
+
+.text-social {
+  color: white;
+  font-size: 25px;
+  margin-left: 40px;
+}
+
+.instalaciones {
+  color: white !important;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}

@@ -1,3 +1,7 @@
+body {
+  font-family: "Roboto";
+  background-color: #fafafa;
+}
 .navbar {
   background-color: #071013;
 }
@@ -20,6 +24,7 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  border: 1px solid rgb(37, 35, 35);
 }
 
 .card-img-top {
@@ -46,4 +51,38 @@ h2 {
   text-align: center; /* Centra el texto */
   color: #071013; /* Color del texto, puedes cambiarlo según el diseño */
   margin-bottom: 1.5rem; /* Espaciado debajo del título */
+  text-transform: uppercase;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 20px;
+  color: #5a5a5a;
+}
+
+.btn-secondary {
+  background-color: rgb(255, 0, 0) !important;
+  width: 300px;
+}
+
+.btn-primary {
+  width: 300px;
+}
+
+td {
+  font-weight: bold !important;
+}
+
+.btn-suscribirse {
+  background-color: rgb(255, 115, 0);
+  border: 1px solid black;
+  font-weight: bold !important;
+  width: 300px;
+  color: rgb(252, 252, 252);
 }
