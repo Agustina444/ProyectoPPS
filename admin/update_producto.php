@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_FILES['imagen']['name']) && $_FILES['imagen']['name'] != '') {
         $imagen_nombre = $_FILES['imagen']['name'];
         $imagen_tmp = $_FILES['imagen']['tmp_name'];
-        $imagen_ruta = "uploads/" . $imagen_nombre;
+        $imagen_ruta = "../static/uploads/" . $imagen_nombre;
 
         // Mover la imagen a la carpeta 'uploads'
         if (move_uploaded_file($imagen_tmp, $imagen_ruta)) {
