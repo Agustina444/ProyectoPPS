@@ -97,19 +97,29 @@ h3{
 /* SEDES */
 
 .sedes{
-	background-image: url("/static/img/gymMoron.jpg");
-	background-repeat: no-repeat;
-    background-size: cover;
     height: 100vh;
+	background-color: rgb(56, 168, 205);
 	color: white;
 	display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
 }
 
-.sedes div{
-	justify-content: center;
-    display: flex;
-	grid-gap: 10px;
+.sedes h3{
+	font-size: 20px;
+	text-align: left;
+}
+.sedes h4{
+	font-size: 14px;
+	text-align: left;
+}
+
+.sede-banner{
+	background-image: url(/img/fondo2.avif);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.sede-icon{
+	width: 60px;
+	height: 60px;
 }
