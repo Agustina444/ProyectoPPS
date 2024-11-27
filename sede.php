@@ -70,7 +70,7 @@
 				</div>				
 			</div>			
 
-			<div class="row-12 d-flex">
+			<div class="row-12 d-flex mt-4">
 				<div class="col p-2">
 					<div class="row">
 						<img class="col-2 sede-icon" src="/static/svg/weight.svg" alt="">
