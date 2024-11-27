@@ -18,7 +18,7 @@
     	<header>
     		<div class="contenedor-titulo">
     			<h1> POTENCIAMOS TU <br /> <span class ="bienestar">BIENESTAR </span></h1>
-    			<p><a href="/clases/reservar.php"> Comenzá a reservar tus clases </a></p>
+    			<p><a href="/clases/lista.php"> Comenzá a reservar tus clases </a></p>
     		</div>
     	</header>
 
