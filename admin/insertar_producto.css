@@ -45,3 +45,11 @@ form {
 input[type="file"] {
   border: none;
 }
+
+/* 1. Limitar tamaño del <textarea> */
+textarea {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 150px; /* Altura inicial */
+  max-height: 300px; /* Altura máxima */
+  resize: none; /* Permite redimensionar solo verticalmente */
+}

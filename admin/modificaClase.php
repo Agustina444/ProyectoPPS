@@ -112,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
 	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   <link rel="stylesheet" href="custom.css">
-    <link rel="stylesheet" href="modificaclase.css">
+   <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="stylesheet" href="modifica_clase.css">
  
   
 	<title> Modificación clase </title>
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<div class="content">
     <h1 class="text-center fw-bold">Modificar Clase</h1>
 
-	<form action="" method="post" autocomplete="off" enctype="multipart/form-data" class="p-4 b mt-4 formu" style="max-width: 600px; margin: auto;">
+	<form action="" method="post" autocomplete="off" enctype="multipart/form-data" class="p-4 b  formu" style="max-width: 600px;">
         <div class="mb-3">
             <label for="nombreClase" class="form-label">Nombre Clase</label>
             <input type="text" name="nombreClase" id="nombreClase" class="form-control" value="<?php echo $datosClase['nombre']; ?>" required />
