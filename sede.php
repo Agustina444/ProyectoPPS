@@ -21,7 +21,7 @@
 		</div>
 
 		
-		<div class="col-6">
+		<div class="col-6 p-2">
 			<div class="row-12 d-flex">
 				<div class="col p-2">
 					<div class="row">
