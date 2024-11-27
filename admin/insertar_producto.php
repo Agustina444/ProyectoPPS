@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stock = mysqli_real_escape_string($conexion, $_POST['stock']);
 
     // Manejo de la imagen
-    $target_dir = "../static/uploads/";
+    $target_dir = "../static/uploads";
     $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

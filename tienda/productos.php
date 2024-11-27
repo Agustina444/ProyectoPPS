@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="productos.css">
@@ -62,16 +63,17 @@ if (mysqli_num_rows($result) > 0) {
     echo '<div class="row">';
 
     while ($producto = mysqli_fetch_assoc($result)) {
-        echo '<div class="col-md-4 mb-4 d-flex align-items-stretch">';
+        echo '<div class="col-md-3 mb-3 d-flex align-items-stretch">';
         echo '<div class="card">';
         echo '<div class="card-img-container">';
-        echo '<img src="' . $producto['imagen_url'] . '" class="card-img-top" alt="' . $producto['nombre'] . '">';
+        echo '<img src="' . $producto['imagen_url'] . '" class="card-img-top producto-nombre" alt="' . $producto['nombre'] . '">';
         echo '</div>';
         echo '<div class="card-body d-flex flex-column">';
         echo '<h5 class="card-title mb-3">' . htmlspecialchars($producto['nombre']) . '</h5>';
         echo '<p class="card-text text-muted flex-grow-1">' . htmlspecialchars($producto['descripcion']) . '</p>';
-        echo '<p class="card-text text-price fw-bold mt-2">$' . number_format($producto['precio'], 2) . '</p>';
-        echo '<p class="card-text mt-auto"><small class="text-muted">Categoría: ' . htmlspecialchars($producto['categoria_nombre']) . '</small></p>';
+        echo '<p class="card-text categoria"><small class="text-muted categoria">Categoría: ' . htmlspecialchars($producto['categoria_nombre']) . '</small></p>';
+        echo '<p class="card-text text-price fw-bold ">$' . number_format($producto['precio'], 2) . '</p>';
+        
         echo '</div>';
 
         // Formulario para agregar al carrito
@@ -79,9 +81,10 @@ if (mysqli_num_rows($result) > 0) {
         echo '<form action="agregar_carrito.php" method="POST">';
         echo '<input type="hidden" name="idProducto" value="' . $producto['id'] . '">';
         echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($producto['nombre']) . '">';
-        echo '<input type="hidden" name="precio" value="' . $producto['precio'] . '">';
-        echo '<input type="number" name="cantidad" value="1" min="1" class="form-control mb-2" style="width: 70px; margin: 0 auto;">';
-        echo '<button type="submit" class="btn btn-danger btn-sm">Agregar al Carrito</button>';
+        echo '<input type="number" class="cantidad" name="cantidad" value="1" min="1" class="form-control mb-2" style="width: 50px;;">';
+        echo '<input type="hidden" class="precio" name="precio" value="' . $producto['precio'] . '">';
+        
+        echo '<button type="submit" class="btn btn-danger compra btn-sm">Agregar al Carrito</button>';
         echo '</form>';
         echo '</div>';
         echo '</div>'; 
