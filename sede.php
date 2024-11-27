@@ -17,7 +17,9 @@
 	<section id="sedes" class="sedes row g-0">
 
 		<div class="row-12 sede-banner">
-			<h1> Gym Moron </h1>	
+			<div class="px-5 py-3 h1-bg">
+				<h1>Gym Moron</h1>
+			</div>
 		</div>
 
 		
