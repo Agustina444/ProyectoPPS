@@ -21,12 +21,12 @@ if(!isset($_SESSION)) session_start();
         <div class="navbar-nav ms-auto">
             <!-- Si el usuario esta logueado -->
             <?php if (isset($_SESSION['logueado']) && $_SESSION['logueado']) { ?>
-                <a class="nav-link text-light" href="/contacto.php">Contacto</a>
-                <a class="nav-link text-light" href="/clases/lista.php">Clases</a>
-                <a class="nav-link text-light" href="/tienda/productos.php">Tienda</a>
+                <a class="nav-link text-light" href="/ProyectoPPS/contacto.php">Contacto</a>
+                <a class="nav-link text-light" href="/ProyectoPPS/clases/lista.php">Clases</a>
+                <a class="nav-link text-light" href="/ProyectoPPS/tienda/productos.php">Tienda</a>
                 <!-- Si el usuario es admin -->
                 <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] == 1) { ?>
-                    <a class="nav-link text-light" href="/admin/administrador.php">Admin</a>
+                    <a class="nav-link text-light" href="/ProyectoPPS/admin/administrador.php">Admin</a>
                 <?php } ?>
                 <!-- Muestra el dropdown de usuario -->
                 <li class="nav-item dropdown">
@@ -34,22 +34,22 @@ if(!isset($_SESSION)) session_start();
                         <?php echo $_SESSION['nombre']; ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-dark">
-                        <a class="dropdown-item text-light" href="/usuario/perfil.php">Perfil</a>
-                        <a class="dropdown-item text-light" href="/lib/cerrar_sesion.php">Cerrar Sesión</a>
+                        <a class="dropdown-item text-light" href="/ProyectoPPS/usuario/perfil.php">Perfil</a>
+                        <a class="dropdown-item text-light" href="/ProyectoPPS/lib/cerrar_sesion.php">Cerrar Sesión</a>
                     </div>
                 </li>
             <!-- Si el usuario no inicio sesion -->
             <?php } else { ?>
-                <a class="nav-link text-light" href="/sede.php">Conocé nuestro gym</a>
-                <a class="nav-link text-light" href="/contacto.php">Contacto</a>
+                <a class="nav-link text-light" href="/ProyectoPPS/sede.php">Conocé nuestro gym</a>
+                <a class="nav-link text-light" href="/ProyectoPPS/contacto.php">Contacto</a>
                 <!-- Muestra el dropdown de invitado-->
                 <li class="nav-item dropdown">
                     <a class="nav-link text-light dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Invitado
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-dark">
-                        <a class="dropdown-item text-light" href="/usuario/login.php">Login</a>
-                        <a class="dropdown-item text-light" href="/usuario/registro.php">Registro</a>
+                        <a class="dropdown-item text-light" href="/ProyectoPPS/usuario/login.php">Login</a>
+                        <a class="dropdown-item text-light" href="/ProyectoPPS/usuario/registro.php">Registro</a>
                     </div>
                 </li>
             <?php } ?>

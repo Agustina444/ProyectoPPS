@@ -65,7 +65,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<div class="col-md-4 mb-4 d-flex align-items-stretch">';
         echo '<div class="card">';
         echo '<div class="card-img-container">';
-        echo '<img src="/static/' . $producto['imagen_url'] . '" class="card-img-top" alt="' . $producto['nombre'] . '">';
+        echo '<img src="' . $producto['imagen_url'] . '" class="card-img-top" alt="' . $producto['nombre'] . '">';
         echo '</div>';
         echo '<div class="card-body d-flex flex-column">';
         echo '<h5 class="card-title mb-3">' . htmlspecialchars($producto['nombre']) . '</h5>';
