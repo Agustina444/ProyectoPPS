@@ -6,6 +6,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
 	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="../admin/insertar_producto.css">
+   <link rel="stylesheet" href="../static/css/custom.css">
     <title>Document</title>
 
 <?php
@@ -29,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stock = mysqli_real_escape_string($conexion, $_POST['stock']);
 
     // Manejo de la imagen
-    $target_dir = "../static/uploads/productos/";
+    $target_dir = "../static/uploads/";
     $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -106,7 +108,7 @@ $result_categorias = mysqli_query($conexion, $sql_categorias);
             </div>
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
-                <textarea name="descripcion" class="form-control" required></textarea>
+                <textarea name="descripcion" class="form-control textarea2" required></textarea>
             </div>
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>

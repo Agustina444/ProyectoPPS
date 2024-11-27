@@ -3,75 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="/static/css/custom.css">
-    <link rel="stylesheet" href="/static/css/productos.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <link rel="stylesheet" href="../admin/ver_productos.css">
     <title>Productos</title>
 </head>
 
 <body>
 
 <?php
-
 // Conecta a la BD
 require '../lib/conexion_bd.php';
 // Comienza sesión y verifica si el usuario está logueado
 require '../lib/esta_logueado.php';
 
-if ( $_SESSION['categoria'] != 1) {
+if ($_SESSION['categoria'] != 1) {
     // Si no es administrador, lo redirigimos a una página de error o al inicio
     header("Location: error_page.php");
     exit();
-  }
+}
 
 $sql = "SELECT p.*, c.nombre AS categoria_nombre FROM productos p JOIN categorias c ON p.categoria_id = c.id";
 $result = mysqli_query($conexion, $sql);
 
 include "sidebar.php"; // Incluimos el sidebar
+?>
 
-// Ajuste para que el contenido no se solape con el sidebar//
-echo '<div class="content-wrapper" style="margin-left: 270px">'; // Margen izquierdo para compensar el sidebar
+<div class="content-wrapper" style="margin-left: 270px">
+    <h1 class="text-center mb-4">Nuestros Productos</h1>
+    <a href="insertar_producto.php" class="btn btn-success mb-4">Insertar Nuevo Producto</a>
 
-if (mysqli_num_rows($result) > 0) {
-    echo '<h1 class="text-center mb-4">Nuestros Productos</h1>';
-    echo '<a href="insertar_producto.php" class="btn btn-success mb-4">Insertar Nuevo Producto</a>';
-    echo '<div class="row">';
+    <?php if (mysqli_num_rows($result) > 0): ?>
+        <div class="row">
+            <?php while ($producto = mysqli_fetch_assoc($result)): ?>
+                <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                    <div class="card border-0">
+                        <div>
+                            <img src="<?= htmlspecialchars($producto['imagen_url']) ?>" 
+                                 class="card-img-top" 
+                                 alt="<?= htmlspecialchars($producto['nombre']) ?>" 
+                                 >
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">
+                                <?= htmlspecialchars($producto['nombre']) ?>
+                            </h5>
+                            <p class="card-text" s>
+                                <?= htmlspecialchars($producto['descripcion']) ?>
+                            </p>
+                            <p class="card-text">
+                                $<?= number_format($producto['precio'], 2) ?>
+                            </p>
+                        </div>
+                        <div class="card-footer d-flex alig-items-center justify-conter-center">
+                            <a href="update_producto.php?id=<?= $producto['id'] ?>" 
+                               class="btn btn-primary "> 
 
-    while ($producto = mysqli_fetch_assoc($result)) {
-        echo '<div class="col-md-4 mb-4 d-flex align-items-stretch">';
-        echo '<div class="card border-0 h-100" style="background-color: #f8f9fa; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">'; // Tarjeta con sombra y bordes redondeados
-        echo '<div style="width: 100%; height: 100px; overflow: hidden;">';
-        echo '<img src="' . $producto['imagen_url'] . '" class="card-img-top" alt="' . $producto['nombre'] . '" style="width: 100%; height: 100%; object-fit: contain;">'; // Imagen ajustada para llenar el contenedor
-        echo '</div>';
-        echo '<div class="card-body d-flex flex-column">';
-        echo '<h5 class="card-title mb-3" style="font-weight: 700; color: #333;">' . htmlspecialchars($producto['nombre']) . '</h5>';
-        echo '<p class="card-text text-muted flex-grow-1" style="font-size: 0.9rem;">' . htmlspecialchars($producto['descripcion']) . '</p>';
-        echo '<p class="card-text text-price fw-bold mt-2" style="color: #e63946; font-size: 1.1rem;">$' . number_format($producto['precio'], 2) . '</p>';
-        echo '</div>';
-        echo '<div class="card-footer bg-transparent border-top-0 text-center mt-3">';
+                                Modificar
+                            </a>
+                            <a href="#" onclick="confirmDelete(<?= $producto['id'] ?>)" 
+                               class="btn btn-danger btn-sm eliminar"  >
+                              
+                                Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        </div>
+    <?php else: ?>
+        <div class="container mt-5">
+            <h1 class="text-center">No hay productos disponibles.</h1>
+        </div>
+    <?php endif; ?>
+</div>
 
-        // Botones de Modificar y Eliminar
-        echo '<a href="update_producto.php?id=' . $producto['id'] . '" class="btn btn-primary btn-sm" style="width: 100%; font-weight: bold; border-radius: 20px; padding: 10px; margin-bottom: 5px; background-color: #007bff; border: none;">Modificar</a>';
-        echo '<a href="#" onclick="confirmDelete(' . $producto['id'] . ')" class="btn btn-danger btn-sm" style="width: 100%; font-weight: bold; border-radius: 20px; padding: 10px; background-color: #dc3545; border: none;">Eliminar</a>';
-
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-    }
-    echo '</div>';
-} else {
-    echo '<div class="container mt-5">';
-    echo '<h1 class="text-center">No hay productos disponibles.</h1>';
-    echo '</div>';
-}
-
-echo '</div>'; // Cerrar content-wrapper
+<?php
 // Cerrar conexión
 mysqli_close($conexion);
 ?>
+
 
 <script>
 function confirmDelete(productId) {

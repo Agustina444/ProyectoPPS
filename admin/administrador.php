@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="/static/css/custom.css">
-  <link rel="stylesheet" href="/static/css/administrador.css">
+  <link rel="stylesheet" href="../static/css/custom.css">
+  <link rel="stylesheet" href="../static/css/administrador.css">
   <title>Clases</title>
 </head>
 
@@ -54,7 +54,7 @@
       <div class="row"> <!-- Fila para contener las tarjetas -->
         <?php while ($recorroClases = mysqli_fetch_array($clases)) { ?>
           <div class="col-md-3"> <!-- Columna de tamaño 4, para que se ajusten 3 tarjetas por fila -->
-            <div class="card mb-3">
+            <div class="card mb-3 text-center">
               <img src="<?php echo '../static/' . $recorroClases['imagen_url']; ?>" class="card-img-top" alt="Imagen de la clase">
               <div class="card-body">
                 <h5 class="card-title font-weight-bold"><?php echo $recorroClases['nombre']; ?></h5>
@@ -66,17 +66,17 @@
                     echo "Horario: " . $horarioSinSegundos;
                     ?>
                 </p>
-                <div class="d-flex justify-content-end mt-3" style="gap: 10px;">
+                <div class="d-flex  mt-3" style="gap: 10px;">
                   <!-- Botón para ver usuarios registrados -->
-                  <button class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#usuariosModal" data-clase-id="<?php echo $recorroClases['clase_id']; ?>" onclick="cargarUsuarios(<?php echo $recorroClases['clase_id']; ?>)">
+                  <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#usuariosModal" data-clase-id="<?php echo $recorroClases['clase_id']; ?>" onclick="cargarUsuarios(<?php echo $recorroClases['clase_id']; ?>)">
                     Usuarios
                   </button>
                   <!-- Botón para editar la clase -->
-                  <a href="modificaClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-outline-primary btn-sm">
-                    <i class="fas fa-edit"></i> Editar
+                  <a href="modificaClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-primary">
+                    <span class="editar">Editar</span>
                   </a>
                   <!-- Botón para eliminar la clase -->
-                  <a href="eliminarClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-outline-danger btn-sm eliminarBtn" data-clase-id="<?php echo $recorroClases['clase_id']; ?>">Eliminar</a>
+                  <a href="eliminarClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-danger btn-sm eliminarBtn" data-clase-id="<?php echo $recorroClases['clase_id']; ?>">Eliminar</a>
                 </div>
               </div>
             </div>
