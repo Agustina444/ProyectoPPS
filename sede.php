@@ -28,6 +28,7 @@
 						<img class="col-3 sede-icon" src="/static/svg/marker.svg" alt="">
 						<div class="col-9">
 							<h3>Direccion</h3>
+							<h4>Av. Eva Perón 3457</h4>
 						</div>
 						
 					</div>
@@ -38,8 +39,8 @@
 						<img class="col-3 sede-icon" src="/static/svg/watch.svg" alt="">
 						<div class="col-9">
 							<h3>Horarios</h3>
-							<h4> Lunes a Viernes: 7 a 22hs  </h4>
-							<h4> Domingos/Feriados: Cerrado </h4>
+							<h4>Lunes a Viernes: 7 a 22hs</h4>
+							<h4>Domingos/Feriados: Cerrado</h4>
 						</div>
 						
 					</div>
@@ -76,9 +77,9 @@
 						<img class="col-2 sede-icon" src="/static/svg/weight.svg" alt="">
 						<div class="col-10">
 							<h3>Equipamiento</h3>
-							<h4>Pesas</h4>
-							<h4>Maquinas</h4>
-							<h4>Colchonetas</h4>
+							<li><h4>Pesas</h4></li>
+							<li><h4>Maquinas</h4></li>
+							<li><h4>Colchonetas</h4></li>
 						</div>
 					</div>
 				</div>
