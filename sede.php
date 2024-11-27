@@ -21,11 +21,14 @@
 		</div>
 
 		
-		<div class="col-6 p-2">
+		<div class="col-6 p-2 ps-5">
 			<div class="row-12 d-flex">
 				<div class="col p-2">
 					<div class="row">
-						<img class="col-3 sede-icon" src="/static/svg/marker.svg" alt="">
+						<div class="col-3">
+							<img class="sede-icon" src="/static/svg/marker.svg" alt="">
+						</div>
+						
 						<div class="col-9">
 							<h3>Direccion</h3>
 							<h4>Av. Eva Perón 3457</h4>
@@ -36,7 +39,9 @@
 	
 				<div class="col p-2">
 					<div class="row">
-						<img class="col-3 sede-icon" src="/static/svg/watch.svg" alt="">
+						<div class="col-3">
+							<img class="sede-icon" src="/static/svg/watch.svg" alt="">
+						</div>
 						<div class="col-9">
 							<h3>Horarios</h3>
 							<h4>Lunes a Viernes: 7 a 22hs</h4>
@@ -50,7 +55,9 @@
 			<div class="row-12 d-flex">
 				<div class="col p-2">
 					<div class="row">
-						<img class="col-3 sede-icon" src="/static/svg/mail.svg" alt="">
+						<div class="col-3">
+							<img class="sede-icon" src="/static/svg/mail.svg" alt="">
+						</div>
 						<div class="col-9">
 							<h3>Mail</h3>
 							<h4>gymmoron@gmail.com</h4>
@@ -62,7 +69,9 @@
 	
 				<div class="col p-2">
 					<div class="row">
-						<img class="col-3 sede-icon" src="/static/svg/phone.svg" alt="">
+						<div class="col-3">
+							<img class="sede-icon" src="/static/svg/phone.svg" alt="">
+						</div>
 						<div class="col-9">
 							<h3>Telefono</h3>
 							<h4>4657-5543</h4>
@@ -74,7 +83,9 @@
 			<div class="row-12 d-flex mt-4">
 				<div class="col p-2">
 					<div class="row">
-						<img class="col-2 sede-icon" src="/static/svg/weight.svg" alt="">
+						<div class="col-2">
+							<img class="sede-icon" src="/static/svg/weight.svg" alt="">
+						</div>
 						<div class="col-10">
 							<h3>Equipamiento</h3>
 							<li><h4>Pesas</h4></li>
@@ -87,7 +98,7 @@
 			
 		</div>
 
-		<div class="col-6 p-2">
+		<div class="col-6 pe-5">
 			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.7083152168643!2d-58.63916912395666!3d-34.68731047292443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc728e545f8d7%3A0xa3b92b7c2044a4e1!2sAv.%20Eva%20Per%C3%B3n%203457%2C%20B1712%20Mor%C3%B3n%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1732475963139!5m2!1ses-419!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>			
 		</div>
 

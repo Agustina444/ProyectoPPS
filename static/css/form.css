@@ -98,7 +98,7 @@ h3{
 
 .sedes{
     height: 100vh;
-	background-color: rgb(56, 168, 205);
+	background-color: rgb(17, 17, 17);
 	color: white;
 	display: flex;
 }
@@ -120,6 +120,6 @@ h3{
 }
 
 .sede-icon{
-	width: 60px;
-	height: 60px;
+	width: 42px;
+	height: 42px;
 }
