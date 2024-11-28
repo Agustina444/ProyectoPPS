@@ -35,6 +35,7 @@ if(!isset($_SESSION)) session_start();
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-dark">
                         <a class="dropdown-item text-light" href="/ProyectoPPS/usuario/perfil.php">Perfil</a>
+                        <a class="dropdown-item text-light" href="/ProyectoPPS/usuario/transacciones.php">Transacciones</a>
                         <a class="dropdown-item text-light" href="/ProyectoPPS/lib/cerrar_sesion.php">Cerrar Sesión</a>
                     </div>
                 </li>
