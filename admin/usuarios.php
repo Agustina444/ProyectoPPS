@@ -120,6 +120,26 @@
   </section>
 </div>
 
+<script>
+function confirmarEliminacion(usuarioId) {
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "¡No podrás revertir esta acción!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Enviar el formulario correspondiente
+      document.getElementById('formEliminar' + usuarioId).submit();
+    }
+  })
+}
+</script>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->
