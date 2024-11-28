@@ -76,7 +76,7 @@
                     <span class="editar">Editar</span>
                   </a>
                   <!-- Botón para eliminar la clase -->
-                  <a href="eliminarClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-danger btn-sm eliminarBtn" data-clase-id="<?php echo $recorroClases['clase_id']; ?>">Eliminar</a>
+                  <a href="eliminarClase.php?clase_id=<?php echo $recorroClases['clase_id']; ?>" class="btn btn-sm eliminarBtn" data-clase-id="<?php echo $recorroClases['clase_id']; ?>">Eliminar</a>
                 </div>
               </div>
             </div>
@@ -154,6 +154,17 @@ function cargarUsuarios(clase_id) {
     });
 </script>
 
+<script>
+    const currentLocation = location.href;
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    const sidebarLenght = sidebarLinks.length;
+    for(let i = 0; i < sidebarLenght; i++){
+        if(sidebarLinks[i].href === currentLocation){
+            sidebarLinks[i].className = "nav-link sidebar-link sidebar-link-active"
+        }
+    }
+
+</script>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

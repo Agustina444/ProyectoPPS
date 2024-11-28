@@ -46,6 +46,7 @@ if (isset($_GET['idUsuario'])) {
     <!-- Incluir Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/custom.css">
     <style>
         /* Estilo personalizado: Naranja y negro */
         body {
@@ -104,8 +105,8 @@ if (isset($_GET['idUsuario'])) {
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand ml-5 mx-auto" href="#">Modificar usuario</a>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/lib/cerrar_sesion.php">CERRAR SESION</a></li>
-                <li class="nav-item"><a class="nav-link" href="/index.php">INICIO</a></li>
+                <li class="nav-item"><a class="nav-link" href="../lib/cerrar_sesion.php">CERRAR SESION</a></li>
+                <li class="nav-item"><a class="nav-link" href="../index.php">INICIO</a></li>
             </ul>
         </nav>
     </div>

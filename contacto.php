@@ -55,11 +55,18 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['msj'])) {
 		<div class="contacto">
 			<form action="" method="post" autocomplete="off">
 
-				<input type="text" placeholder="Nombre" name="nombre" class="datos" required />
+				<input type="text" id="nombre" required placeholder="Nombre"
+       					oninvalid="this.setCustomValidity('Debes ingresar tu nombre')"
+       					oninput="this.setCustomValidity('')"/>
 				<br /><br />
-				<input type="text" placeholder="Email" name="email" class="datos" required />
+
+				<input type="email" id="email" required placeholder="Email"
+       					oninvalid="this.setCustomValidity('Debes ingresar tu email')"
+       					oninput="this.setCustomValidity('')"/>
 				<br /><br />
-				<textarea name="msj" class="datos">  </textarea>
+				<textarea name="msj" class="datos" 
+						oninvalid="this.setCustomValidity('Debes escribir un mensaje')"
+       					oninput="this.setCustomValidity('')"/>  </textarea>
 				<br /><br />
 
 				<input type="submit" class="boton" value="ENVIAR" />

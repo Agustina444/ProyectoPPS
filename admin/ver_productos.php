@@ -106,6 +106,17 @@ function confirmDelete(productId) {
 }
 </script>
 
+<script>
+    const currentLocation = location.href;
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    const sidebarLenght = sidebarLinks.length;
+    for(let i = 0; i < sidebarLenght; i++){
+        if(sidebarLinks[i].href === currentLocation){
+            sidebarLinks[i].className = "nav-link sidebar-link sidebar-link-active"
+        }
+    }
+</script>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->

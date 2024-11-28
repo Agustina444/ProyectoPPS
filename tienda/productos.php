@@ -15,10 +15,10 @@
 
 <body>
 <header>
-<link rel="stylesheet" href="/static/css/barra_nav.css">
+<link rel="stylesheet" href="../static/css/barra_nav.css">
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="#">LEMA Fit</a>
+        <a class="navbar-brand" href="../index.php">LEMA Fit</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

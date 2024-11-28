@@ -8,7 +8,7 @@
     	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="./index.css">
     </head>
 
     <body style="">
@@ -93,17 +93,17 @@
     <div class="row justify-content-center">
       <div class="col-4 text-center">
         <a href="https://www.facebook.com" target="_blank" class="social-icon">
-          <i class="fab fa-facebook"></i>
+          <i class="fab fa-facebook fa-fw"></i>
         </a>
       </div>
       <div class="col-4 text-center">
         <a href="https://www.instagram.com" target="_blank" class="social-icon">
-          <i class="fab fa-instagram"></i>
+          <i class="fab fa-instagram fa-fw"></i>
         </a>
       </div>
       <div class="col-4 text-center">
         <a href="https://www.youtube.com" target="_blank" class="social-icon">
-          <i class="fab fa-youtube"></i>
+          <i class="fab fa-youtube fa-fw"></i>
         </a>
       </div>
     </div>
@@ -157,21 +157,21 @@
     <div class="col-12 mb-3">
       <a href="#" target="_blank" class="social-icon2 d-flex align-items-center">
         <!-- Ícono de WhatsApp y texto al lado -->
-        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-whatsapp fa-fw"></i>
         <span class="ml-2 text-social">1127871891</span>
       </a>
     </div>
     <div class="col-12 mb-3">
       <a href="#" target="_blank" class="social-icon2 d-flex align-items-center">
         <!-- Ícono de Casa y texto al lado -->
-        <i class="fas fa-house"></i>
+        <i class="fas fa-house fa-fw"></i>
         <span class="ml-2 text-social">Av. Eva peron 3457 </span>
       </a>
     </div>
     <div class="col-12 mb-3">
       <a href="#" target="_blank" class="social-icon2 d-flex align-items-center">
         <!-- Ícono de Dólar y texto al lado -->
-        <i class="fas fa-dollar-sign"></i>
+        <i class="fas fa-dollar-sign fa-fw"></i>
         <span class="ml-2 text-social">Informar pagos : lutinagym@gmail.com</span>
       </a>
     </div>

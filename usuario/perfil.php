@@ -77,23 +77,27 @@ if (!$resultado) {
             <br>    
             <div class="mb-3">
                 <label for="usuario">Usuario</label>
-                <input type="text" class="form-control" name="usuario" id="usuario" value="<?= $usuario['usuario']; ?>" />
+                <input type="text" class="form-control" name="usuario" id="usuario" value="<?= $usuario['usuario']; ?>" required/>
             </div>
             <div class="mb-3">
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" name="nombre" id="nombre" value="<?= $usuario['nombre']; ?>" />
+                <input type="text" class="form-control" name="nombre" id="nombre" value="<?= $usuario['nombre']; ?>" 
+                required/>
             </div>
             <div class="mb-3">
                 <label for="apellido">Apellido</label>
-                <input type="text" class="form-control" name="apellido" id="apellido" value="<?= $usuario['apellido']; ?>" />
+                <input type="text" class="form-control" name="apellido" id="apellido" value="<?= $usuario['apellido']; ?>"
+                required/>
             </div>
             <div class="mb-3">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" name="email" id="email" value="<?= $usuario['email']; ?>" />
+                <input type="text" class="form-control" name="email" id="email" value="<?= $usuario['email']; ?>"
+                required/>
             </div>
             <div class="mb-3">
                 <label for="contra">Contraseña</label>
-                <input type="password" class="form-control" name="contra" id="contra" />
+                <input type="password" class="form-control" name="contra" id="contra" 
+                required/>
             </div>
         </div>
         <br>
