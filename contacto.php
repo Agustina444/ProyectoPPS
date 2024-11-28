@@ -18,15 +18,42 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['msj'])) {
 	$emailEnviado = true;
 
 	if ($emailEnviado == true) {
-		$mensaje = "Su correo se envio con éxito";
-		$consulta = mysqli_query(
-			$conexion,
-			"INSERT INTO contactos (nombre,email,msj)
-				 		VALUES ( '$nombre','$email','$msj')"
-		);
+			$consulta = mysqli_query($conexion,
+				"INSERT INTO contactos (nombre,email,msj)
+					VALUES ('$nombre','$email','$msj')");
+
+			echo '<script>
+				document.addEventListener("DOMContentLoaded", function() {
+					Swal.fire({
+						title: "Éxito!",
+							text: "Su mensaje se envio correctamente.",
+								icon: "success",
+									confirmButtonText: "Aceptar"
+					})  .then((result) => {
+							if (result.isConfirmed) {
+								window.location.href = "index.php";
+							}
+						});
+				});
+			</script>';
 	} else {
-		$mensaje = "Su correo no se pudo enviar";
+
+		echo 	'<script>
+					document.addEventListener("DOMContentLoaded", function() {
+						Swal.fire({
+							title: "Ocurrio un error!",
+								text: "Su mensaje no se pudo enviar.",
+									icon: "error",
+										confirmButtonText: "Aceptar"
+						})  .then((result) => {
+								if (result.isConfirmed) {
+									window.location.href = "index.php";
+								}
+							});
+					});
+			    </script>';
 	}
+
 	mysqli_close($conexion);
 }
 ?>
@@ -48,10 +75,6 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['msj'])) {
 	<header>
 		<?php include 'lib/barra_nav.php'; ?>
 	</header>
-
-	<?php if (isset($emailEnviado) && $emailEnviado == true) { ?>
-		<p> <?php echo $nombre . ":  " . $mensaje; ?> </p>
-	<?php } else { ?>
 		<div class="contacto">
 			<form action='' method="post" autocomplete="off">
 
@@ -75,11 +98,15 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['msj'])) {
 
 			</form>
 		</div>
-	<?php } ?>
 
 	<!-- Popperjs -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+ 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>
