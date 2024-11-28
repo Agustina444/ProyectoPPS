@@ -105,7 +105,7 @@ if ($fila = mysqli_fetch_assoc($resultado_premium)) {
                                 <button type="submit" class="btn btn-primary">Reservar</button>
                                 <?php } else { ?>
                                     <?php if ($es_premium != 1) { ?>
-                                    <a href="../index.php"><button type="disabled" class="btn btn-suscribirse">Hazte Premium!</button></a>
+                                    <a href="https://mpago.la/28h9ssq"><button type="disabled" class="btn btn-suscribirse">Reservar</button></a>
                                     <?php }  ?>
                             </form>
                         <?php } ?>
