@@ -1,0 +1,22 @@
+body {
+  font-family: "Roboto";
+  background-color: rgb(243, 241, 243);
+}
+
+th,
+td {
+  text-align: center;
+  font-weight: bold;
+}
+th {
+  background-color: black !important;
+  color: white !important;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+.btn-lg {
+  width: 300px;
+}
