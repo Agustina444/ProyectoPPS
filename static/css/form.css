@@ -103,6 +103,12 @@ h3{
 	display: flex;
 }
 
+.sedes .h1-bg{
+	background-color: rgb(17, 17, 17);
+	width: fit-content;
+	margin-left: 20px;
+}
+
 .sedes h3{
 	font-size: 20px;
 	text-align: left;
@@ -113,7 +119,7 @@ h3{
 }
 
 .sede-banner{
-	background-image: url(/img/fondo2.avif);
+	background-image: url(../img/fondo2.avif);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;

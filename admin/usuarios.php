@@ -41,8 +41,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+     <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../static/css/custom.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -72,8 +72,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">User</th>
+                <th scope="col">Usuario</th>
                 <th scope="col">Email</th>
                 <th scope="col">Fecha Inicio</th>
                 <th scope="col">Fecha Fin</th>
@@ -85,7 +84,6 @@
             <tbody>
               <?php while ($recorroUsuarios = mysqli_fetch_array($usuarios)) { ?>
                 <tr>
-                  <th scope="row"><?php echo $recorroUsuarios['usuario_id'] ?></th>
                   <td class="fw-bold"><?php echo $recorroUsuarios['usuario'] ?></td>
                   <td><?php echo $recorroUsuarios['email'] ?></td>
                   <td><?php echo $recorroUsuarios['fecha_inicio'] ?></td>
@@ -104,7 +102,7 @@
                   </td>
                   <td>
                     <form action="" method="get" id="formEliminar<?php echo $recorroUsuarios['usuario_id']; ?>">
-                      <button type="button" class="btn btn-danger" onclick="confirmarEliminacion(<?php echo $recorroUsuarios['usuario_id']; ?>)">
+                      <button type="button" class="btn btn-eliminar" onclick="confirmarEliminacion(<?php echo $recorroUsuarios['usuario_id']; ?>)">
                         <i class="fas fa-trash"></i>
                       </button>
                       <input type="hidden" name="usuarioEliminado" value="<?php echo $recorroUsuarios['usuario_id'] ?>"/>
@@ -146,6 +144,17 @@ function confirmarEliminacion(usuarioId) {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<script>
+    const currentLocation = location.href;
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    const sidebarLenght = sidebarLinks.length;
+    for(let i = 0; i < sidebarLenght; i++){
+        if(sidebarLinks[i].href === currentLocation){
+            sidebarLinks[i].className = "nav-link sidebar-link sidebar-link-active"
+        }
+    }
+</script>
     
 </body>
 </html>

@@ -106,7 +106,7 @@ if ($fila = mysqli_fetch_assoc($resultado_premium)) {
                                 <input type="hidden" name="clase_id" value="<?= $clase['clase_id']; ?>">
                                 <button type="submit" class="btn btn-primary">Reservar</button>
                                 <?php } else { ?>
-                                    <?php if ($es_premium != 1 ||  !isset($_SESSION)) { ?>
+                                    <?php if ($es_premium != 1) { ?>
                                     <a href="../index.php"><button type="disabled" class="btn btn-suscribirse">Hazte Premium!</button></a>
                                     <?php }  ?>
                             </form>

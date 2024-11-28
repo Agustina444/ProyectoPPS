@@ -120,6 +120,17 @@ body {
   transform: translateY(-5px);
 }
 
+.btn-eliminar{
+    color: black;
+    background-color: #ff0018;
+    border-color: #ff0018;
+    box-shadow: none;
+}
+
+.btn-eliminar:hover{
+  background-color: #cf0215;
+}
+
 .card-header {
   background-color: #23b5d3; /* Azul claro */
   color: #ffffff; /* Texto blanco */
@@ -168,6 +179,9 @@ body {
   bottom: 0;
   width: 100%;
 }
+.sidebar-link-active{
+  background-color: rgba(255,255,255,.1)
+  }
 
 /* Media Queries para Responsividad */
 @media (max-width: 768px) {
@@ -186,4 +200,5 @@ body {
   .nav-link {
     font-size: 14px;
   }
+
 }

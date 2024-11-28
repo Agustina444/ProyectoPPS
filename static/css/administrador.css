@@ -25,10 +25,18 @@
 .btn-info,
 .btn-primary,
 .eliminarBtn {
+  background-color: #d62828; /* Color de botón */
+  border: none;
+  border-radius: 5px;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+.eliminarBtn:hover{
+  color: white;
+  background-color: #cf0215;
 }
 
 .editar {
