@@ -1,0 +1,82 @@
+.card-header {
+    background-color: #23b5d3; /* Azul claro */
+    color: #ffffff; /* Texto blanco */
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+  
+.card-body {
+    padding: 20px;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #23b5d3; /* Azul claro */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+ }
+  
+.btn-primary:hover {
+    background-color: #75abbc; /* Azul en hover */
+}
+
+.btn-eliminar{
+    color: black;
+    background-color: #ff0018;
+    border-color: #ff0018;
+    box-shadow: none;
+}
+
+.btn-eliminar:hover{
+  background-color: #cf0215;
+}
+  
+/* Formularios */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #a2aebb; /* Borde gris */
+    padding: 10px;
+    transition: border-color 0.3s;
+}
+  
+.form-control:focus {
+    border-color: #23b5d3; /* Color en el foco */
+    box-shadow: 0 0 5px rgba(35, 181, 211, 0.5);
+}
+  
+/* Footer */
+.footer {
+    background-color: #071013; /* Fondo oscuro */
+    color: #dfe0e2; /* Texto claro */
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.sidebar-link-active{
+    background-color: rgba(255,255,255,.1)
+}
+  
+  /* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .main-sidebar {
+      width: 200px;
+    }
+  
+    .main-content {
+      margin-left: 200px;
+    }
+  
+    .navbar-brand {
+      font-size: 22px;
+    }
+  
+    .nav-link {
+      font-size: 14px;
+    }
+}

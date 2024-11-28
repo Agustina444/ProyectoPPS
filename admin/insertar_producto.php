@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   <link rel="stylesheet" href="../admin/insertar_producto.css">
-   <link rel="stylesheet" href="../static/css/custom.css">
-    <title>Document</title>
-
 <?php
 // Conecta a la BD
 require '../lib/conexion_bd.php';
@@ -95,57 +83,75 @@ $sql_categorias = "SELECT * FROM categorias";
 $result_categorias = mysqli_query($conexion, $sql_categorias);
 ?>
 
-<?php include "sidebar.php"; ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="insertar_producto.css">
+    <title>Nuevo producto</title>
+</head>
 
-<!-- Ajuste del layout para evitar el solapamiento con el sidebar -->
-<div class="content-wrapper">
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Insertar Nuevo Producto</h1>
-        <form action="insertar_producto.php" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre del Producto</label>
-                <input type="text" name="nombre" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción</label>
-                <textarea name="descripcion" class="form-control textarea2" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="precio" class="form-label">Precio</label>
-                <input type="number" step="0.01" name="precio" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="categoria_id" class="form-label">Categoría</label>
-                <select name="categoria_id" class="form-control" required>
-                    <option value="" disabled selected>Selecciona una categoría</option>
-                    <?php while($categoria = mysqli_fetch_assoc($result_categorias)): ?>
-                        <option value="<?php echo $categoria['id']; ?>"><?php echo $categoria['nombre']; ?></option>
-                    <?php endwhile; ?>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="stock" class="form-label">Stock</label>
-                <input type="number" name="stock" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="imagen" class="form-label">Imagen del Producto</label>
-                <input type="file" name="imagen" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-success">Insertar Producto</button>
-        </form>
+
+<body class="layout-fixed">
+  <div class="wrapper">
+    <!-- Barra de nav y sidebar -->
+    <?php include "sidebar.php" ?>
+
+    <!-- Contenido -->
+    <div class="content-wrapper">
+        <div class="container py-5">
+            <h1 class="text-center font-weight-bold mb-4">Nuevo Producto</h1>
+            <form action="insertar_producto.php" method="POST" enctype="multipart/form-data" class="mx-auto p-4 border rounded shadow mt-5 bg-light">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Producto</label>
+                    <input type="text" name="nombre" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea name="descripcion" class="form-control textarea2" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" step="0.01" name="precio" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="categoria_id" class="form-label">Categoría</label>
+                    <select name="categoria_id" class="form-control" required>
+                        <option value="" disabled selected>Selecciona una categoría</option>
+                        <?php while($categoria = mysqli_fetch_assoc($result_categorias)): ?>
+                            <option value="<?= $categoria['id']; ?>"><?= $categoria['nombre']; ?></option>
+                        <?php endwhile; ?>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" name="stock" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="imagen" class="form-label">Imagen del Producto</label>
+                    <input type="file" name="imagen" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">Insertar Producto</button>
+            </form>
+        </div>
     </div>
 </div>
-
-<?php
-// Cerrar conexión
-mysqli_close($conexion);
-?>
-
+<?php mysqli_close($conexion); ?>
 </body>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>

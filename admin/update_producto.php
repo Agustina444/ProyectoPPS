@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   <link rel="stylesheet" href="../admin/modificar_producto.css">
-   <link rel="stylesheet" href="../static/css/custom.css">
-    <title>Document</title>
-
 <?php
 // Conecta a la BD
 require '../lib/conexion_bd.php';
@@ -82,72 +70,87 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error actualizando producto: " . mysqli_error($conexion);
     }
 }
-
-include "sidebar.php"; // Incluir sidebar
-
 ?>
 
-<!-- Formulario para editar el producto -->
-<div class="content-wrapper" style="margin-left: 250px;"> <!-- Asegurar que el contenido no se solape con el sidebar -->
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Editar Producto</h2>
-        <form action="update_producto.php?id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data"> <!-- Asegurar el enctype para subir archivos -->
-            <div class="form-group">
-                <label for="nombre">Nombre del Producto</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo htmlspecialchars($producto['nombre']); ?>" required>
-            </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="modificar_producto.css">
+    <title>Editar producto</title>
+</head>
 
-            <div class="form-group">
-                <label for="descripcion">Descripción</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required><?php echo htmlspecialchars($producto['descripcion']); ?></textarea>
-            </div>
+<body class="layout-fixed">
+    <div class="wrapper">
+        <!-- Barra de nav y sidebar -->
+        <?php include "sidebar.php" ?>
 
-            <div class="form-group">
-                <label for="precio">Precio</label>
-                <input type="number" class="form-control" id="precio" name="precio" value="<?php echo htmlspecialchars($producto['precio']); ?>" step="0.01" required>
-            </div>
+        <!-- Contenido -->
+        <div class="content-wrapper">
+            <div class="container py-5">
+                <h1 class="text-center font-weight-bold mb-4">Editar Producto</h1>
+                <form action="update_producto.php?id=<?= $id; ?>" method="POST" enctype="multipart/form-data" class="mx-auto p-4 border rounded shadow mt-5 bg-light">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Producto</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo htmlspecialchars($producto['nombre']); ?>" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="categoria_id">Categoría</label>
-                <select class="form-control" id="categoria_id" name="categoria_id" required>
-                    <option value="">Seleccione una categoría</option>
-                    <?php while ($categoria = mysqli_fetch_assoc($result_categorias)): ?>
-                        <option value="<?php echo $categoria['id']; ?>" <?php if ($producto['categoria_id'] == $categoria['id']) echo 'selected'; ?>>
-                            <?php echo htmlspecialchars($categoria['nombre']); ?>
-                        </option>
-                    <?php endwhile; ?>
-                </select>
-            </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required><?php echo htmlspecialchars($producto['descripcion']); ?></textarea>
+                    </div>
 
-            <div class="form-group">
-                <label for="stock">Stock</label>
-                <input type="number" class="form-control" id="stock" name="stock" value="<?php echo htmlspecialchars($producto['stock']); ?>" required>
-            </div>
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="number" class="form-control" id="precio" name="precio" value="<?php echo htmlspecialchars($producto['precio']); ?>" step="0.01" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="imagen">Subir nueva imagen (opcional)</label>
-                <input type="file" class="form-control-file" id="imagen" name="imagen">
-                <?php if (!empty($producto['imagen_url'])): ?>
-                    <p>Imagen actual: <img src="<?php echo $producto['imagen_url']; ?>" alt="Imagen del producto" width="100"></p>
-                <?php endif; ?>
-            </div>
+                    <div class="form-group">
+                        <label for="categoria_id">Categoría</label>
+                        <select class="form-control" id="categoria_id" name="categoria_id" required>
+                            <option value="">Seleccione una categoría</option>
+                            <?php while ($categoria = mysqli_fetch_assoc($result_categorias)): ?>
+                                <option value="<?php echo $categoria['id']; ?>" <?php if ($producto['categoria_id'] == $categoria['id']) echo 'selected'; ?>>
+                                    <?php echo htmlspecialchars($categoria['nombre']); ?>
+                                </option>
+                            <?php endwhile; ?>
+                        </select>
+                    </div>
 
-            <button type="submit" class="btn btn-primary">Actualizar Producto</button>
-        </form>
+                    <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <input type="number" class="form-control" id="stock" name="stock" value="<?php echo htmlspecialchars($producto['stock']); ?>" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagen">Subir nueva imagen (opcional)</label>
+                        <input type="file" class="form-control-file" id="imagen" name="imagen">
+                        <?php if (!empty($producto['imagen_url'])): ?>
+                            <p>Imagen actual: <img src="<?php echo $producto['imagen_url']; ?>" alt="Imagen del producto" width="100"></p>
+                        <?php endif; ?>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Actualizar Producto</button>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
 
-<?php
-// Cerrar conexión
-mysqli_close($conexion);
-?>
+<?php mysqli_close($conexion); ?>
 
-
-</body>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
 </html>

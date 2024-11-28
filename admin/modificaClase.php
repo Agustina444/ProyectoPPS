@@ -109,55 +109,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
-	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   <link rel="stylesheet" href="../static/css/custom.css">
-    <link rel="stylesheet" href="./modifica_clase.css">
- 
-  
-	<title> Modificación clase </title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="modifica_clase.css">
+	<title>Editar clase</title>
 </head>
-<body>
 
-	<?php include "sidebar.php" ?>
+<body class="layout-fixed">
+  <div class="wrapper">
+    <!-- Barra de nav y sidebar -->
+    <?php include "sidebar.php" ?>
 
-	<div class="content">
-    <h1 class="text-center fw-bold">Modificar Clase</h1>
+    <!-- Contenido -->
+    <div class="content-wrapper">
+	  <section class="content">
+	    <div class="container-fluid">
+		  <h1 class="text-center font-weight-bold py-5">Modificar Clase</h1>
 
-	<form action="" method="post" autocomplete="off" enctype="multipart/form-data" class="p-4 b  formu" style="max-width: 600px;">
-        <div class="mb-3">
-            <label for="nombreClase" class="form-label">Nombre Clase</label>
-            <input type="text" name="nombreClase" id="nombreClase" class="form-control" value="<?php echo $datosClase['nombre']; ?>" required />
-        </div>
+		  <!-- Formulario -->
+		  <form action="" method="post" autocomplete="off" enctype="multipart/form-data" class="mx-auto">
+			<div class="mb-3">
+				<label for="nombreClase" class="form-label">Nombre Clase</label>
+				<input type="text" name="nombreClase" id="nombreClase" class="form-control" value="<?php echo $datosClase['nombre']; ?>" required />
+			</div>
 
-        <div class="mb-3">
-            <label for="horarioClase" class="form-label">Horario</label>
-            <input type="time" name="horarioClase" id="horarioClase" class="form-control" value="<?php echo $datosClase['horario']; ?>" required />
-        </div>
+			<div class="mb-3">
+				<label for="horarioClase" class="form-label">Horario</label>
+				<input type="time" name="horarioClase" id="horarioClase" class="form-control" value="<?php echo $datosClase['horario']; ?>" required />
+			</div>
 
-        <div class="mb-3">
-            <label for="imagenClase" class="form-label">Imagen de la Clase</label>
-            <input type="file" name="imagenClase" id="imagenClase" class="form-control" accept="image/*" />
-            <small class="form-text text-muted">Selecciona una nueva imagen si deseas actualizarla.</small>
-        </div>
+			<div class="mb-3">
+				<label for="imagenClase" class="form-label">Imagen de la Clase</label>
+				<input type="file" name="imagenClase" id="imagenClase" class="form-control" accept="image/*" />
+				<small class="form-text text-muted">Selecciona una nueva imagen si deseas actualizarla.</small>
+			</div>
 
-        <input type="hidden" name="idClase" value="<?php echo $datosClase['clase_id']; ?>" />
+			<input type="hidden" name="idClase" value="<?php echo $datosClase['clase_id']; ?>" />
 
-        <div class="d-flex justify-content-center">
-            <input type="submit" class="btn btn-primary" value="CONTINUAR" />
-        </div>
-    </form>
+			<div class="d-flex justify-content-center">
+				<input type="submit" class="btn btn-primary" value="CONTINUAR" />
+			</div>
+		  </form>
+		</div>
+	  </section>
     </div>
-
-
+  </div>
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+  <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
-<!-- Bootstrap 4 -->
-
-<!-- AdminLTE App -->
 </body>
 </html>
