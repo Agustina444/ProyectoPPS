@@ -11,7 +11,7 @@ if(!isset($_SESSION)) session_start();
     }
 </style>
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black;">
-    <a class="navbar-brand ms-2 mb-0 h1" href="/index.php">LEMA Fit</a>
+    <a class="navbar-brand ms-2 mb-0 h1" href="/ProyectoPPS/index.php">LEMA Fit</a>
     <!-- Menu hamburgesa -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

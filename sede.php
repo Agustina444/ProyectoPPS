@@ -4,14 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title> Sedes </title>
-	<link rel="stylesheet" type="text/css" href="/static/css/form.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/form.css">
 	<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 	<header>
-		<?php include 'lib/barra_nav.php'; ?> 
+		<?php include './lib/barra_nav.php'; ?> 
 	</header>
 
 	<section id="sedes" class="sedes row g-0">
@@ -28,7 +28,7 @@
 				<div class="col p-2">
 					<div class="row">
 						<div class="col-3">
-							<img class="sede-icon" src="/static/svg/marker.svg" alt="">
+							<img class="sede-icon" src="./static/svg/marker.svg" alt="">
 						</div>
 						
 						<div class="col-9">
@@ -42,7 +42,7 @@
 				<div class="col p-2">
 					<div class="row">
 						<div class="col-3">
-							<img class="sede-icon" src="/static/svg/watch.svg" alt="">
+							<img class="sede-icon" src="./static/svg/watch.svg" alt="">
 						</div>
 						<div class="col-9">
 							<h3>Horarios</h3>
@@ -58,7 +58,7 @@
 				<div class="col p-2">
 					<div class="row">
 						<div class="col-3">
-							<img class="sede-icon" src="/static/svg/mail.svg" alt="">
+							<img class="sede-icon" src="./static/svg/mail.svg" alt="">
 						</div>
 						<div class="col-9">
 							<h3>Mail</h3>
@@ -72,7 +72,7 @@
 				<div class="col p-2">
 					<div class="row">
 						<div class="col-3">
-							<img class="sede-icon" src="/static/svg/phone.svg" alt="">
+							<img class="sede-icon" src="./static/svg/phone.svg" alt="">
 						</div>
 						<div class="col-9">
 							<h3>Telefono</h3>
@@ -86,7 +86,7 @@
 				<div class="col p-2">
 					<div class="row">
 						<div class="col-2">
-							<img class="sede-icon" src="/static/svg/weight.svg" alt="">
+							<img class="sede-icon" src="./static/svg/weight.svg" alt="">
 						</div>
 						<div class="col-10">
 							<h3>Equipamiento</h3>
@@ -105,6 +105,11 @@
 		</div>
 
 	</section>
+	
+	<!-- Popperjs -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
