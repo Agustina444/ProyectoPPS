@@ -3,6 +3,41 @@
     date_default_timezone_set('America/Argentina/Buenos_Aires');
 ?>
 
+<?php
+session_start(); // Inicia la sesión para acceder a $_SESSION
+
+// Conexión a la base de datos
+$conexion = mysqli_connect("localhost", "root", "", "proyecto");
+
+// Verifica la conexión
+if (!$conexion) {
+    die("Error en la conexión a la base de datos: " . mysqli_connect_error());
+}
+
+// Verifica si el usuario está logueado
+if (isset($_SESSION['id_usuario'])) {
+    // Obtiene el ID del usuario de la sesión
+    $usuario_id = $_SESSION['id_usuario'];
+    
+    // Consulta SQL para actualizar el campo 'es_premium'
+    $sql = "UPDATE usuarios SET es_premium = 1 WHERE usuario_id = $usuario_id";
+    
+    // Ejecutar la consulta
+    if (mysqli_query($conexion, $sql)) {
+        echo "El usuario ha sido actualizado a Premium con éxito.";
+    } else {
+        echo "Error al actualizar el usuario: " . mysqli_error($conexion);
+    }
+} else {
+    echo "No hay usuario en la sesión.";
+}
+
+// Cierra la conexión
+mysqli_close($conexion);
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
