@@ -99,18 +99,18 @@ if ($fila = mysqli_fetch_assoc($resultado_premium)) {
                         <?php if (in_array($clase['clase_id'], $reservas)) { ?>
                             <button class="btn btn-secondary" disabled>Registrado</button>
                         <?php } else { ?>
-
+                            <!-- Si no esta suscrito -->
                             <?php if ($es_premium == 1) { ?>
-
-                            <form action="" method="POST" onsubmit="return confirm('¿Desea confirmar la reservar para esta clase?');">
-                                <input type="hidden" name="clase_id" value="<?= $clase['clase_id']; ?>">
-                                <button type="submit" class="btn btn-primary">Reservar</button>
-                                <?php } else { ?>
-                                    <?php if ($es_premium != 1) { ?>
+                                <form action="" method="POST" onsubmit="return confirm('¿Desea confirmar la reservar para esta clase?');">
+                                    <input type="hidden" name="clase_id" value="<?= $clase['clase_id']; ?>">
+                                    <button type="submit" class="btn btn-primary">Reservar</button>
+                                </form>
+                            <?php } else { ?>
+                            <!-- Si esta suscrito -->
+                                <?php if ($es_premium != 1) { ?>
                                     <a href="../index.php"><button type="disabled" class="btn btn-suscribirse">Hazte Premium!</button></a>
-                                    <?php }  ?>
-                            </form>
-                        <?php } ?>
+                                <?php } ?>
+                            <?php } ?>
                         <?php }  ?>
                     </div>
                 </div>
