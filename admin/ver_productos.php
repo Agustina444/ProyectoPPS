@@ -46,7 +46,7 @@ $result = mysqli_query($conexion, $sql);
 
           <!-- Productos -->
           <?php if (mysqli_num_rows($result) > 0): ?>
-            <div class="row">
+            <div class="ml-3 row">
               <?php while ($producto = mysqli_fetch_assoc($result)): ?>
                 <!-- Producto -->
                 <div class="col-sm-6 col-xl-4">

@@ -34,7 +34,7 @@ if (isset($_GET['idUsuario'])) {
 											SET nombre = '$nombre', apellido = '$apellido', email = '$email', categoria_id = '$categoria', 
 												fecha_inicio = '$fechaInicio', fecha_fin = '$fechaFin', es_premium = '$esPremium'
 											WHERE usuario_id = " . $_GET['idUsuario']);
-	header("Location: administrador.php");
+	header("Location: usuarios.php");
 }
 ?>
 
