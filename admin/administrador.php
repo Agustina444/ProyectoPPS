@@ -54,14 +54,15 @@
           </div>
 
           <!-- Lista de clases -->
-          <div class="row"> 
+          <div class="row mx-auto"> 
             <?php while ($clase = mysqli_fetch_array($clases)) { ?>
               <!-- Clase -->
-              <div class="col-sm-4 col-xl-3"> 
-                <div class="card mb-3">
+              <div class="col-sm-6 col-xl-4 px-4"> 
+                <div class="card">
                   <!-- Imagen -->
-                  <img class="card-img-top" src="<?php echo '../static/' . $clase['imagen_url']; ?>" alt="Imagen de la clase">
-                  
+                  <div class="px-3">
+                    <img class="card-img-top" src="<?php echo '../static/' . $clase['imagen_url']; ?>" alt="Imagen de la clase">
+                  </div>
                   <!-- Datos de la clase -->
                   <div class="card-body">
                     <!-- Nombre y horario -->
@@ -78,15 +79,15 @@
                     <!-- Botones de la tarjeta -->
                     <div class="d-flex" style="gap: 10px;">
                       <!-- Botón para ver usuarios registrados -->
-                      <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#usuariosModal" data-clase-id="<?php echo $clase['clase_id']; ?>" onclick="cargarUsuarios(<?php echo $clase['clase_id']; ?>)">
+                      <button class="btn btn-info" data-toggle="modal" data-target="#usuariosModal" data-clase-id="<?php echo $clase['clase_id']; ?>" onclick="cargarUsuarios(<?php echo $clase['clase_id']; ?>)">
                         Usuarios
                       </button>
                       <!-- Botón para editar la clase -->
-                      <a class="btn btn-primary btn-sm" href="modificaClase.php?clase_id=<?php echo $clase['clase_id']; ?>">
+                      <a class="btn btn-primary" href="modificaClase.php?clase_id=<?php echo $clase['clase_id']; ?>">
                         <span class="editar">Editar</span>
                       </a>
                       <!-- Botón para eliminar la clase -->
-                      <a class="btn btn-danger btn-sm" href="eliminarClase.php?clase_id=<?php echo $clase['clase_id']; ?>" data-clase-id="<?php echo $clase['clase_id']; ?>">Eliminar</a>
+                      <a class="btn btn-danger" href="eliminarClase.php?clase_id=<?php echo $clase['clase_id']; ?>" data-clase-id="<?php echo $clase['clase_id']; ?>">Eliminar</a>
                     </div>
                   </div>
                 </div>

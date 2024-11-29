@@ -8,6 +8,15 @@ body {
   padding: 0;
 }
 
+.card-title {
+  font-size: 20px;
+}
+
+.card-text {
+  font-size: 20px;
+  color: #5a5a5a;
+}
+
 /* Navbar */
 .main-header {
   background-color: #071013; /* Fondo oscuro */
@@ -57,8 +66,8 @@ body {
 
 #clases .card {
   margin-top: 30px;
-  width: 250px;
-  height: 350px;
+  width: 300px;
+  height: 370px;
   border: 1px solid black;
 }
 
