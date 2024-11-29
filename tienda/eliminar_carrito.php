@@ -1,5 +1,6 @@
 <?php
-session_start();
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idProducto = $_POST['idProducto'];

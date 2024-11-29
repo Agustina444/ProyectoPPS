@@ -1,8 +1,8 @@
 <?php
-session_start();
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
 
 require __DIR__ .'/vendor/autoload.php';
-
 
 use MercadoPago\SDK;
 use MercadoPago\MercadoPagoConfig;
@@ -30,7 +30,7 @@ if (!empty($carrito)) {
         $item->title = htmlspecialchars($producto['nombre']); // Sanitiza el nombre del producto
         $item->quantity = $producto['cantidad'];
         $item->unit_price = (float)$producto['precio']; // Asegúrate de que el precio sea un número flotante
-
+        
         $items[] = $item; // Agrega el producto al array de items
         $total += $item->unit_price * $item->quantity; // Calcula el total
     }
@@ -38,30 +38,32 @@ if (!empty($carrito)) {
     $preference = new Preference();
     $preference->items = $items; 
     
-    $base_url = "http://localhost/ProyectoPPS/tienda/captura.php";
     $params = [
-        "Titulo" => $producto['nombre'],
-        "Cantidad" => $producto['cantidad'],
-        "Precio" =>$producto['precio']
-
+        "usuario" => $_SESSION['nombre'],
+        "nombre" => $producto['nombre'],
+        "descripcion" => $producto['descripcion'],
+        "cantidad" => $producto['cantidad'],
+        "precio" => $producto['precio'],
+        "compra" => 1, // usa un flag para indicar que es una compra de la tienda, y no la suscripcion del gym
     ];
 
+    $base_url = "http://localhost:8000/ProyectoPPS/tienda/";
     $query_string = http_build_query($params);
-    $url = $base_url . '?' . $query_string;
-
+    $sucess = $base_url . "comprobante.php" . '?' . $query_string;
+    $failure = $base_url . "fallo.php" . '?' . $query_string;
     $client = new PreferenceClient();
     $createdPreference = $client->create([
         "items" => $preference->items,
         "back_urls" => [
-            "success" => "$url",
-            "failure" => "https://localhost/tienda/fallo.php",
+            "success" => $sucess,
+            "failure" => $failure,
             
         ],
         "notification_url" => "https://ba89-2802-8010-8435-be00-4ee-3bc0-f8a2-dcc1.ngrok-free.app/tienda/notificaciones",
     ]);
     
     $preference->auto_return = "approved";
-    $preference->binary_mode = "true";
+    $preference->binary_mode = true;
     // Accede al ID de la preferencia
     $preferenceId = $createdPreference->id; // Aquí tienes el ID de la preferencia
     //echo "ID de la preferencia: " .$preferenceId;

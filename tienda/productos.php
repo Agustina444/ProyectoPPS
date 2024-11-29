@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,9 +84,9 @@ if (mysqli_num_rows($result) > 0) {
         echo '<form action="agregar_carrito.php" method="POST">';
         echo '<input type="hidden" name="idProducto" value="' . $producto['id'] . '">';
         echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($producto['nombre']) . '">';
+        echo '<input type="hidden" name="descripcion" value="' . htmlspecialchars($producto['descripcion']) . '">';
         echo '<input type="number" class="cantidad" name="cantidad" value="1" min="1" class="form-control mb-2" style="width: 50px;;">';
         echo '<input type="hidden" class="precio" name="precio" value="' . $producto['precio'] . '">';
-        
         echo '<button type="submit" class="btn btn-danger compra btn-sm">Agregar al Carrito</button>';
         echo '</form>';
         echo '</div>';

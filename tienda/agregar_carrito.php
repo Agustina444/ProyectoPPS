@@ -1,5 +1,6 @@
 <?php
-session_start();
+// Comienza sesión y verifica si el usuario está logueado
+require '../lib/esta_logueado.php';
 
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
@@ -8,6 +9,7 @@ if (!isset($_SESSION['carrito'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idProducto = $_POST['idProducto'];
     $nombre = $_POST['nombre'];
+    $descripcion = $_POST['descripcion'];
     $precio = $_POST['precio'];
     $cantidad = $_POST['cantidad'];
 
@@ -26,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['carrito'][] = [
             'id' => $idProducto,
             'nombre' => $nombre,
+            'descripcion' => $descripcion,
             'precio' => $precio,
             'cantidad' => $cantidad
         ];
