@@ -37,9 +37,14 @@ $item->unit_price = (float)$producto['precio']; // Precio como flotante
 $preference = new Preference();
 $preference->items = [$item];
 
+// Establece el nombre usuario por defecto 
+// (para que no tire error la pagina, por mas que no se haga un pago con mp)
+$usuario = "Lucas";
+if (isset($_SESSION['nombre'])) $usuario = $_SESSION['nombre'];
+
 // Parametros de url
 $params = [
-    "usuario" => $_SESSION['nombre'] ,
+    "usuario" => $usuario,
     "nombre" => $producto['nombre'],
     "descripcion" =>$producto['precio'],
     "precio" => $producto['precio'],
