@@ -47,10 +47,11 @@ if (!empty($carrito)) {
         "compra" => 1, // usa un flag para indicar que es una compra de la tienda, y no la suscripcion del gym
     ];
 
-    $base_url = "http://localhost:8000/ProyectoPPS/tienda/";
+    $base_url = "http://localhost/ProyectoPPS/tienda/";
     $query_string = http_build_query($params);
     $sucess = $base_url . "comprobante.php" . '?' . $query_string;
-    $failure = $base_url . "fallo.php" . '?' . $query_string;
+    $failure = $base_url . "ver_carrito.php";
+
     $client = new PreferenceClient();
     $createdPreference = $client->create([
         "items" => $preference->items,
