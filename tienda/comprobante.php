@@ -1,6 +1,11 @@
 <?php
     // Timezone argentina
     date_default_timezone_set('America/Argentina/Buenos_Aires');
+
+    // Si viene desde la tienda, vacia el carrito
+    if (isset($_GET['compra']) && $_GET['compra'] == 1) {
+        $_SESSION['carrito'] = [];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -8,6 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/form.css">
     <link rel="stylesheet" href="../static/css/comprobante.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Comprobante de pago</title>
@@ -34,8 +40,13 @@
             <p><strong>Fecha:</strong> <?php echo date("d/m/Y H:i"); ?></p>
         </div>
     </div>
-    <!-- Boton de reservar clases -->
-    <a id="btn-clases" class="btn" href="/ProyectoPPS/clases/lista.php">Comenzá a reservar tus clases!</a>
+    <?php if (isset($_GET['compra']) && $_GET['compra']) { ?>
+        <!-- Boton para volver a la tienda -->
+        <a id="btn-clases" class="btn" href="/ProyectoPPS/tienda/productos.php">Volver a la tienda</a>
+    <?php } else { ?>
+        <!-- Boton de reservar clases -->
+        <a id="btn-clases" class="btn" href="/ProyectoPPS/clases/lista.php">Comenzá a reservar tus clases!</a>
+    <?php } ?>
 </div>
 
 <!-- Popperjs -->
