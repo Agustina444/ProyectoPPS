@@ -1,0 +1,43 @@
+/* Estilo personalizado: Naranja y negro */
+.content_wrapper {
+    background-color: #F1F1F1; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+}
+
+.contenedor {
+    background-color:  #4E4E4E; /* Fondo oscuro para el contenedor */
+    padding: 30px;
+    border-radius: 8px;
+    width: 800px;
+    margin-left: 200px;
+}
+
+.form-label {
+    color: #ff6f00; /* Naranja para las etiquetas */
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #ff6f00; /* Naranja para los botones */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e65c00; /* Un naranja más oscuro al pasar el ratón */
+}
+
+.form-control {
+    background-color: #FFFF; /* Fondo oscuro para inputs */
+    border: 1px solid #ff6f00; /* Borde naranja */
+    color: #000000; /* Texto blanco */
+}
+
+.form-control:focus {
+    border-color: #ff6f00; /* Borde naranja cuando se selecciona */
+    box-shadow: 0 0 0 0.25rem rgba(255, 111, 0, 0.5); /* Sombra naranja */
+}
+
+.checkbox-label {
+    color: #ff6f00; /* Naranja para las etiquetas del checkbox */
+    font-weight: bold;
+}
