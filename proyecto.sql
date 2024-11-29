@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2024 a las 19:28:46
+-- Tiempo de generación: 29-11-2024 a las 01:01:09
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,7 +58,8 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`id`, `nombre`, `descripcion`) VALUES
 (1, 'SUPLEMENTOS', 'SUPLEMENTOS DE GIMNASIO'),
-(2, 'APARATOS', 'APARATOS DE GYM');
+(2, 'APARATOS', 'APARATOS DE GIMNASIO'),
+(3, 'ACCESORIOS', 'ACCESORIOS DE ENTRENAMIENTO');
 
 -- --------------------------------------------------------
 
@@ -78,9 +79,13 @@ CREATE TABLE `clases` (
 --
 
 INSERT INTO `clases` (`clase_id`, `nombre`, `horario`, `imagen_url`) VALUES
-(49, 'Boxeo', '22:00:00', '../static/uploads/clases/1730542690_natacion.png'),
-(50, 'TAEKUONDO', '19:00:00', '../static/uploads/clases/1732644474_Veauthier_Finckensteinallee_01©Veauthier.jpg'),
-(52, 'YOGA ', '12:00:00', '../static/uploads/clases/yoga-7140566_640.jpg');
+(49, 'NATACION', '08:00:00', '../static/uploads/clases/1732837838_natacion.jpg'),
+(53, 'BOXEO', '10:00:00', '../static/uploads/clases/1732837875_uploadse-portada-boxeadora.jpg'),
+(54, 'YOGA', '13:00:00', '../static/uploads/clases/yoga-7140566_640.jpg'),
+(55, 'SPINNING', '16:00:00', '../static/uploads/clases/Diseno-sin-titulo-30.jpg'),
+(56, 'TAEKWONDO', '18:00:00', '../static/uploads/clases/taekwondo-3.jpg'),
+(57, 'CROSSFIT', '20:00:00', '../static/uploads/clases/cross.jpg'),
+(58, 'ZUMBA', '21:00:00', '../static/uploads/clases/zumba.jpg');
 
 -- --------------------------------------------------------
 
@@ -101,7 +106,8 @@ CREATE TABLE `contactos` (
 
 INSERT INTO `contactos` (`id`, `nombre`, `email`, `msj`) VALUES
 (1, 'Candela', 'candela@gmail.com', 'Probando  '),
-(2, 'Pedro', 'pedro@gmail.com', 'Probando 2   ');
+(2, 'Pedro', 'pedro@gmail.com', 'Probando 2   '),
+(3, 'agus', 'alanosa@gmail.com', 'probando');
 
 -- --------------------------------------------------------
 
@@ -125,10 +131,15 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `categoria_id`, `stock`, `fecha_agregado`, `imagen_url`) VALUES
-(12, 'hfghfghfgh', 'fghfghfg', 2000.00, 1, 200, '2024-10-22 02:01:50', '../static/uploads/456483494_900342952143806_3327254521803100364_n.jpg'),
-(13, 'Barra', 'BARRA MUSCULATURA ', 2500.00, 2, 6000, '2024-11-02 10:37:39', '../static/uploads/people-3239249_640.jpg'),
-(14, 'PASTILLAS ', 'PASTILLAS PARA DORMIR ', 2500.00, 1, 3000, '2024-11-02 10:39:05', '../static/uploads/tablets-943765_640.jpg'),
-(15, 'CINTA CORRER', 'PARA TROTAR', 6000.00, 1, 3000, '2024-11-02 10:56:54', '../static/uploads/t8p5rp7ydkg61.jpg');
+(16, 'Pelota de Peso', '6kg \r\nDiámetro: 35cm\r\nCosturas reforzadas', 50000.00, 3, 100, '2024-11-28 23:32:09', '../static/uploadspelotaPeso.jpg'),
+(17, 'Pesa Rusa', 'Kettlebell DeporAr\r\n12 kg\r\nMaterial PVC', 45000.00, 3, 250, '2024-11-28 23:36:07', '../static/uploadskettleBell.jpg'),
+(18, 'Pesas Tobilleras', 'Energy Fit\r\n4kg \r\nRegulable al talle', 6371.00, 3, 80, '2024-11-28 23:38:39', '../static/uploadstobilleras.jpg'),
+(19, 'Soga de Salto', 'Speed Rope PVC\r\nMedida 2.90 mts\r\nLargo 14 cm', 5000.00, 3, 20, '2024-11-28 23:39:51', '../static/uploadssoga.jpg'),
+(20, 'Colchoneta', 'Follow Fit\r\nMedidas: 100x50x4', 30599.00, 3, 55, '2024-11-28 23:40:35', '../static/uploadscolchonetas.jpg'),
+(21, 'Creatina', 'Star Nutrition\r\nSin sabor, no trae Scoop\r\n5 gr de creatina pura', 24974.00, 1, 150, '2024-11-28 23:41:32', '../static/uploadscreatina.jpg'),
+(22, 'Barras Integrales', 'Integra\r\nAlto en fibra y proteina, 100% naturales', 2500.00, 1, 500, '2024-11-28 23:43:13', '../static/uploadsbarrasIntegra.jpg'),
+(23, 'Botellas Deportivas', 'Conserva la temperatura\r\nCapacidad 750ml', 24974.00, 3, 60, '2024-11-28 23:44:06', '../static/uploadsbotellas.jpg'),
+(24, 'Calleras', 'Talle unico\r\nLargo de tira: 30cm\r\nLargo de base: 19cm', 15000.00, 3, 10, '2024-11-28 23:45:02', '../static/uploadscalleras.jpg');
 
 -- --------------------------------------------------------
 
@@ -181,7 +192,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`usuario_id`, `nombre`, `apellido`, `email`, `usuario`, `contrasenia`, `categoria_id`, `fecha_inicio`, `fecha_fin`, `es_premium`) VALUES
 (6, 'Lucas', 'Gordillo', 'gordillolucas26@yaho', 'Lucas666', '$2y$10$.JR000skpRFMgYOueF9M3eMehq3jUHiJ6kvJEIV/ppxzGsyrk6TXm', 1, '2024-11-14', '2024-12-14', 1),
-(11, 'Agustina', 'Lanosa', 'lanosa@lanosa', 'Agus666', '$2y$10$TJWi60yQ843uKCfCOTmSCuJMXyP/K/fV9yk9hKmAIA2TI0cDgdl8u', 2, NULL, NULL, 0);
+(11, 'micaela', 'Lanosa', 'lanosa@gmail.com', 'Agus666', '$2y$10$TJWi60yQ843uKCfCOTmSCuJMXyP/K/fV9yk9hKmAIA2TI0cDgdl8u', 2, '2024-11-28', '2024-12-28', 1),
+(12, 'Pedro', 'Lanosa', 'pedro@gmail.com', 'pedro', '$2y$10$OSLzTXFo5zGGKmMcsT4z7OwWmP7dIp4.RCVflB.wE3q7jcsHlI7r6', 2, '2024-11-28', '2024-12-28', 0);
 
 --
 -- Índices para tablas volcadas
@@ -239,31 +251,31 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `clases`
 --
 ALTER TABLE `clases`
-  MODIFY `clase_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `clase_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
