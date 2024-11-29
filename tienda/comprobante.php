@@ -25,12 +25,14 @@ if (isset($_SESSION['id_usuario'])) {
     // Ejecutar la consulta
     if (mysqli_query($conexion, $sql)) {
         echo "El usuario ha sido actualizado a Premium con éxito.";
+        $_SESSION['es_premium'] = 1;
     } else {
         echo "Error al actualizar el usuario: " . mysqli_error($conexion);
     }
 } else {
     echo "No hay usuario en la sesión.";
 }
+
 
 // Cierra la conexión
 mysqli_close($conexion);
