@@ -12,13 +12,18 @@ h2 {
 }
 
 .btn {
-  background-color: #009ee3;
-  color: white;
+  background-color: #009ee3 !important;
+  color: white !important;
   width: 200px;
   margin-left: 20px;
   font-weight: bold;
   font-size: 20px;
 }
+
+.btn:hover {
+  transform: scale(1.05); /* Efecto de zoom en el botón */
+}
+
 .card {
   border: 3px solid rgb(218, 69, 0);
   border-radius: 10px;

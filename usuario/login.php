@@ -33,6 +33,7 @@ if (isset($_POST['usuario']) && isset($_POST['contrasenia'])) {
 			$_SESSION['nombre'] = $datosUsuario['nombre'];
 			$_SESSION['id_usuario'] = $datosUsuario['usuario_id'];
 			$_SESSION['categoria'] = $datosUsuario['categoria_id'];
+			$_SESSION['es_premium'] = $datosUsuario['es_premium'];
 
 			if ($_SESSION['categoria'] == 1) {
 				// Si el usuario es admin

@@ -10,7 +10,6 @@ header {
   color: #ffffff; /* Texto blanco */
   padding: 40px 0;
   text-align: center;
-
   height: 600px;
 }
 
@@ -96,7 +95,6 @@ h2 {
 }
 
 #ingresar {
-  background: ; /* Color de fondo atractivo */
   color: white;
   padding: 40px 0; /* Mayor espacio en la sección de ingresar */
   text-align: center;
