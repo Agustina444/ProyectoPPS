@@ -1,8 +1,10 @@
 <?php
 session_start();
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ .'/vendor/autoload.php';
 
+
+use MercadoPago\SDK;
 use MercadoPago\MercadoPagoConfig;
 use MercadoPago\Resources\Preference;
 use MercadoPago\Resources\Preference\Item;
@@ -36,19 +38,22 @@ if (!empty($carrito)) {
     $preference = new Preference();
     $preference->items = $items; 
     
-    // Asigna los items a la preferencia
-    $preference->back_urls = [
-        "success" => "https://localhost/tienda/captura.php", // URL para el éxito
-        "failure" => "https://localhost/tienda/fallo.php", // URL para fallo
-         // URL para pendiente
+    $base_url = "https://localhost/proyectopps/tienda/captura.php";
+    $params = [
+        "Titulo" => $producto['nombre'],
+        "Cantidad" => $producto['cantidad'],
+        "Precio" =>$producto['precio']
+
     ];
-    
-    
+
+    $query_string = http_build_query($params);
+    $url = $base_url . '?' . $query_string;
+
     $client = new PreferenceClient();
     $createdPreference = $client->create([
         "items" => $preference->items,
         "back_urls" => [
-            "success" => "https://localhost/tienda/captura.php",
+            "success" => "$url",
             "failure" => "https://localhost/tienda/fallo.php",
             
         ],
