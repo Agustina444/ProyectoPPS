@@ -1,3 +1,85 @@
+<?php
+
+session_start();
+require __DIR__. '/lib/esta_logueado.php';
+
+require __DIR__ . '/tienda/vendor/autoload.php';
+
+use MercadoPago\SDK;
+use MercadoPago\MercadoPagoConfig;
+use MercadoPago\Resources\Preference;
+use MercadoPago\Resources\Preference\Item;
+use MercadoPago\Client\Preference\PreferenceClient;
+
+// Verifica si la clase Preference se puede cargar
+if (!class_exists('MercadoPago\Resources\Preference')) {
+    die("La clase Preference NO se pudo cargar. Verifica la instalación del SDK de Mercado Pago.");
+}
+
+// Configura el Access Token
+MercadoPagoConfig::setAccessToken("APP_USR-679245900783224-102721-0126dca4d0d7932957039e8934670eef-2063607924");
+
+// Inicializa los datos del producto
+$producto = [
+    "nombre" => "Suscripción Mensual",
+    "descripcion" => "Acceso ilimitado a clases y actividades del gimnasio por un mes.",
+    "precio" => 25000,
+    "cantidad" => 1
+];
+
+// Crear el item para la preferencia
+$item = new Item();
+$item->title = htmlspecialchars($producto['nombre']); // Sanitiza el nombre
+$item->description = htmlspecialchars($producto['descripcion']);
+$item->quantity = $producto['cantidad'];
+$item->unit_price = (float)$producto['precio']; // Precio como flotante
+
+// Crear la preferencia
+$preference = new Preference();
+$preference->items = [$item];
+
+$base_url = "https://localhost/proyectopps/captura2.php";
+    $params = [
+       "usuario" => $_SESSION['nombre'] ,
+        "nombre" => $producto['nombre'],
+        "descripcion" =>$producto['precio'],
+        "precio" => $producto['precio'],
+        "cantidad" => $producto['cantidad']
+
+    ];
+
+    $query_string = http_build_query($params);
+    $url = $base_url . '?' . $query_string;
+
+
+
+$client = new PreferenceClient();
+    $createdPreference = $client->create([
+        "items" => $preference->items,
+        "back_urls" => [
+            "success" => "$url",
+            "failure" => "https://localhost/tienda/fallo.php",
+            
+        ],
+        "notification_url" => "https://ba89-2802-8010-8435-be00-4ee-3bc0-f8a2-dcc1.ngrok-free.app/tienda/notificaciones",
+    ]);
+$preference->auto_return = "approved";
+$preference->binary_mode = true; // Solo aceptar pagos aprobados
+$preference->notification_url = "https://ba89-2802-8010-8435-be00-4ee-3bc0-f8a2-dcc1.ngrok-free.app/tienda/notificaciones";
+
+  
+$preferenceId = $createdPreference->id; // ID de la preferencia
+?>
+// Guardar la preferencia
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -85,7 +167,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-center">Suscripción Mensual</h5>
                     <p class="card-text">$25000 por mes.</p>
-                    <a href="https://mpago.la/28h9ssq" class="btn btn-danger">Comprar</a>
+                    <a href="#" class="btn btn-container"></a>
                 </div>
             </div>
         </div>
@@ -188,7 +270,20 @@
 </div>
 
 
-
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+                    <script>
+                        const mp = new MercadoPago("APP_USR-3b322bd8-f5d7-4466-8d8a-e3162704777b", { locale: "es-AR" });
+                        mp.checkout({
+                            preference: {
+                                id: "<?= $preferenceId ?>", // Usar la preferencia generada dinámicamente
+                            },
+                            render: {
+                                container: ".btn-container", // Contenedor donde se renderizará el botón
+                                label: "Comprar", // Texto del botón
+                            }
+                        });
+                    </script>
+                    
 
 
         <!-- Popperjs -->
