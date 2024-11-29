@@ -37,7 +37,7 @@ $item->unit_price = (float)$producto['precio']; // Precio como flotante
 $preference = new Preference();
 $preference->items = [$item];
 
-$base_url = "http://localhost/ProyectoPPS/";
+// Parametros de url
 $params = [
     "usuario" => $_SESSION['nombre'] ,
     "nombre" => $producto['nombre'],
@@ -46,20 +46,18 @@ $params = [
     "cantidad" => $producto['cantidad']
 ];
 
-$preference->back_urls = [
-    "success" => $base_url . "comprobante_suscripcion.php", // URL para el éxito
-    "failure" => $base_url . "tienda/fallo.php", // URL para fallo
-];
-
-//$query_string = http_build_query($params);
-//$url = $base_url . '?' . $query_string;
+// Construye la url de exito y fracaso de pago
+$base_url = "http://localhost/ProyectoPPS/";
+$query_string = http_build_query($params);
+$sucess = $base_url . "comprobante_suscripcion.php" . "?" . $query_string;
+$failure = $base_url . "index.php"; 
 
 $client = new PreferenceClient();
 $createdPreference = $client->create([
     "items" => $preference->items,
     "back_urls" => [
-        "success" => $base_url . "comprobante_suscripcion.php",
-        "failure" => $base_url . "tienda/fallo.php",
+        "success" => $sucess, // url de exito
+        "failure" => $failure, // url de fracaso
     ],
     "notification_url" => "https://ba89-2802-8010-8435-be00-4ee-3bc0-f8a2-dcc1.ngrok-free.app/tienda/notificaciones",
 ]);
