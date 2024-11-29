@@ -155,7 +155,7 @@ $preferenceId = $createdPreference->id; // ID de la preferencia
                         <!-- Verifica que el usuario inicio sesión para realizar el pago -->
                         <?php if (!isset($_SESSION['logueado']) || !$_SESSION['logueado']) { ?>
                             <a class="btn" href="usuario/login.php">Iniciar sesión</a>
-                        <?php } else if ($_SESSION['es_premium'] == 1) { ?>
+                        <?php } else if (isset($_SESSION['es_premium']) && $_SESSION['es_premium'] == 1) { ?>
                             <a class="btn">Ya esta suscripto</a>
                         <?php } else { ?>
                             <div class="btn btn-container"></div>
