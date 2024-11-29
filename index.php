@@ -37,32 +37,35 @@ $item->unit_price = (float)$producto['precio']; // Precio como flotante
 $preference = new Preference();
 $preference->items = [$item];
 
-$base_url = "https://localhost/proyectopps/captura2.php";
-    $params = [
+$base_url = "http://localhost/ProyectoPPS/";
+$params = [
     "usuario" => $_SESSION['nombre'] ,
-        "nombre" => $producto['nombre'],
-        "descripcion" =>$producto['precio'],
-        "precio" => $producto['precio'],
-        "cantidad" => $producto['cantidad']
-    ];
+    "nombre" => $producto['nombre'],
+    "descripcion" =>$producto['precio'],
+    "precio" => $producto['precio'],
+    "cantidad" => $producto['cantidad']
+];
 
-    $query_string = http_build_query($params);
-    $url = $base_url . '?' . $query_string;
+$preference->back_urls = [
+    "success" => $base_url . "comprobante_suscripcion.php", // URL para el éxito
+    "failure" => $base_url . "tienda/fallo.php", // URL para fallo
+];
+
+//$query_string = http_build_query($params);
+//$url = $base_url . '?' . $query_string;
 
 $client = new PreferenceClient();
-    $createdPreference = $client->create([
-        "items" => $preference->items,
-        "back_urls" => [
-            "success" => "$url",
-            "failure" => "https://localhost/ProyectoPPS/tienda/fallo.php",
-            
-        ],
-        "notification_url" => "https://ba89-2802-8010-8435-be00-4ee-3bc0-f8a2-dcc1.ngrok-free.app/tienda/notificaciones",
-    ]);
+$createdPreference = $client->create([
+    "items" => $preference->items,
+    "back_urls" => [
+        "success" => $base_url . "comprobante_suscripcion.php",
+        "failure" => $base_url . "tienda/fallo.php",
+    ],
+    "notification_url" => "https://ba89-2802-8010-8435-be00-4ee-3bc0-f8a2-dcc1.ngrok-free.app/tienda/notificaciones",
+]);
 
 $preference->auto_return = "approved";
 $preference->binary_mode = true; // Solo aceptar pagos aprobados
-$preference->notification_url = "https://ba89-2802-8010-8435-be00-4ee-3bc0-f8a2-dcc1.ngrok-free.app/tienda/notificaciones";
 $preferenceId = $createdPreference->id; // ID de la preferencia
 ?>
 
@@ -257,17 +260,21 @@ $preferenceId = $createdPreference->id; // ID de la preferencia
     </div>
     
     <!-- Mercado Pago -->
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script>
-        const mp = new MercadoPago("APP_USR-3b322bd8-f5d7-4466-8d8a-e3162704777b", { locale: "es-AR" });
-        
-        mp.checkout({
-            preference: {
-                id: "<?= $preferenceId ?>", // Usar la preferencia generada dinámicamente
-            },
-            render: {
-                container: ".btn-container", // Contenedor donde se renderizará el botón
-                label: "Comprar", // Texto del botón
+        document.addEventListener("DOMContentLoaded", function() {
+            const mp = new MercadoPago("APP_USR-3b322bd8-f5d7-4466-8d8a-e3162704777b", { locale: "es-AR" });
+            const preferencia = <?= json_encode($createdPreference->id) ?>;
+            
+            if (preferencia) {
+                mp.checkout({
+                    preference: {
+                        id: "<?= $createdPreference->id ?>", // Usar la preferencia generada dinámicamente
+                    },
+                    render: {
+                        container: ".btn-container", // Contenedor donde se renderizará el botón
+                        label: "Comprar", // Texto del botón
+                    }
+                });
             }
         });
     </script>
@@ -276,5 +283,7 @@ $preferenceId = $createdPreference->id; // ID de la preferencia
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
 </body>
 </html>

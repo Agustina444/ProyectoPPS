@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procesar Pago</title>
-
-<style>body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
@@ -78,8 +71,6 @@
     font-weight: bold;
 }
 
-
-
 /* Opcional: Estilo para imprimir */
 @media print {
     body {
@@ -97,31 +88,4 @@
     .receipt {
         border: none;
     }
-    
 }
-</style>
-
-    
-</head>
-<body>
-<div class="payment-receipt">
-    <h1 class="success-message">¡Pago Exitoso!</h1>
-    <div class="receipt">
-        <h2>Comprobante de Pago</h2>
-        <p><strong>Usuario:</strong> Lucas</p>
-        <p><strong>Nombre del Producto:</strong> Suscripción Mensual</p>
-        <p><strong>Descripción:</strong> Acceso completo al gimnasio por un mes</p>
-        <p><strong>Precio:</strong> $25,000</p>
-        <p><strong>Cantidad:</strong> 1</p>
-        <p><strong>ID de Transacción:</strong> 94726414348</p>
-        <p><strong>Estatus del Pago:</strong> Aprobado</p>
-        <p><strong>Fecha:</strong> <?php echo date("d/m/Y H:i"); ?></p>
-    </div>
-</div>
-
-<div class="contact-message d-block">
-    <p>Pónganse en contacto para habilitar su suscripción</p>
-</div>
-
-</body>
-</html>

@@ -38,7 +38,7 @@ if (!empty($carrito)) {
     $preference = new Preference();
     $preference->items = $items; 
     
-    $base_url = "https://localhost/proyectopps/tienda/captura.php";
+    $base_url = "http://localhost/ProyectoPPS/tienda/captura.php";
     $params = [
         "Titulo" => $producto['nombre'],
         "Cantidad" => $producto['cantidad'],
