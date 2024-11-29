@@ -21,9 +21,9 @@ MercadoPagoConfig::setAccessToken("APP_USR-679245900783224-102721-0126dca4d0d793
 // Inicializa los datos del producto
 $producto = [
     "nombre" => "Suscripción Mensual",
-    "descripcion" => "Acceso ilimitado a clases y actividades del gimnasio por un mes.",
+    "descripcion" => "Acceso completo al gimnasio por un mes",
     "precio" => 25000,
-    "cantidad" => 1
+    "cantidad" => 1,
 ];
 
 // Crear el item para la preferencia
@@ -49,7 +49,7 @@ $params = [
 // Construye la url de exito y fracaso de pago
 $base_url = "http://localhost/ProyectoPPS/";
 $query_string = http_build_query($params);
-$sucess = $base_url . "comprobante_suscripcion.php" . "?" . $query_string;
+$sucess = $base_url . "tienda/comprobante.php" . "?" . $query_string;
 $failure = $base_url . "index.php"; 
 
 $client = new PreferenceClient();
