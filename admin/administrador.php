@@ -50,7 +50,7 @@
           <!-- Titulo y boton de agregar clase-->
           <h1 class="font-weight-bold pt-5 text-center">Lista de clases</h1>
           <div class="d-flex justify-content-end">
-            <a class="btn btn-success" href="agregaClase.php">Agregar Clase</a>
+            <a class="btn btn-success mr-4" href="agregaClase.php">Agregar Clase</a>
           </div>
 
           <!-- Lista de clases -->

@@ -41,7 +41,7 @@ $result = mysqli_query($conexion, $sql);
           <!-- Titulo y boton de agregar producto -->
           <h1 class="font-weight-bold pt-5 text-center">Lista de productos</h1>
           <div class="d-flex justify-content-end">
-            <a class="btn btn-success" href="insertar_producto.php">Agregar producto</a>
+            <a class="btn btn-success mr-4" href="insertar_producto.php">Agregar producto</a>
           </div>
 
           <!-- Productos -->
