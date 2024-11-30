@@ -18,7 +18,11 @@
         $usuario_id = $_SESSION['id_usuario'];
         
         // Consulta SQL para actualizar el campo 'es_premium'
-        $sql = "UPDATE usuarios SET es_premium = 1 WHERE usuario_id = $usuario_id";
+        $sql = "UPDATE usuarios 
+        SET es_premium = 1, 
+            fecha_inicio = NOW(), 
+            fecha_fin = DATE_ADD(NOW(), INTERVAL 30 DAY) 
+        WHERE usuario_id = $usuario_id";
         
         // Ejecutar la consulta
         if (mysqli_query($conexion, $sql)) {
