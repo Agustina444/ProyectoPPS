@@ -89,11 +89,12 @@
 							<img class="sede-icon" src="./static/svg/weight.svg" alt="">
 						</div>
 						<div class="col-10">
-							<h3>Equipamiento</h3>
-							<li><h4>Pesas</h4></li>
-							<li><h4>Maquinas</h4></li>
+							<h3>Equipamiento y Servicios</h3>
+							<li><h4>Sector de entrenamiento</h4></li>
+							<li><h4>Salon de Clases</h4></li>
 							<li><h4>Piletas</h4></li>
 							<li><h4>Duchas</h4></li>
+							<li><h4>Lockers</h4></li>
 						</div>
 					</div>
 				</div>
