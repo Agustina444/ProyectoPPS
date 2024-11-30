@@ -62,7 +62,7 @@
 						</div>
 						<div class="col-9">
 							<h3>Mail</h3>
-							<h4>gymmoron@gmail.com</h4>
+							<h4>Lemafit@gmail.com</h4>
 						</div>
 						
 					</div>
@@ -92,7 +92,8 @@
 							<h3>Equipamiento</h3>
 							<li><h4>Pesas</h4></li>
 							<li><h4>Maquinas</h4></li>
-							<li><h4>Colchonetas</h4></li>
+							<li><h4>Piletas</h4></li>
+							<li><h4>Duchas</h4></li>
 						</div>
 					</div>
 				</div>

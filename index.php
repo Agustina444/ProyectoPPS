@@ -256,7 +256,7 @@ $preferenceId = $createdPreference->id; // ID de la preferencia
             <a href="#" target="_blank" class="social-icon2 d-flex align-items-center">
                 <!-- Ícono de Dólar y texto al lado -->
                 <i class="fas fa-dollar-sign fa-fw"></i>
-                <span class="ml-2 text-social">Informar pagos : lutinagym@gmail.com</span>
+                <span class="ml-2 text-social">Informar pagos : Lemafit@gmail.com</span>
             </a>
             </div>
         </div>
